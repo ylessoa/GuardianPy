@@ -1,18 +1,18 @@
 [project]
-name = "guardianx"
+name = "GuardianPy"
 version = "0.2.0"
-description = "GuardianX Community defensive antimalware suite: scanner, quarantine, resident guard, signatures, ports and hardening."
+description = "GuardianPy Community defensive antimalware suite: scanner, quarantine, resident guard, signatures, ports and hardening."
 requires-python = ">=3.10"
 authors = [{name = "Skywork Code"}]
 dependencies = ["psutil>=5.9.0"]
 
 [project.scripts]
-guardianx = "guardianx.cli:main"
-guardianx-gui = "guardianx.ui.tk_app:main"
-guardianx-resident = "guardianx.service.resident:main"
+GuardianPy = "GuardianPy.cli:main"
+GuardianPy-gui = "GuardianPy.ui.tk_app:main"
+GuardianPy-resident = "GuardianPy.service.resident:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 
 [tool.setuptools.package-data]
-guardianx = ["signatures/*.json", "assets/*.svg"]
+GuardianPy = ["signatures/*.json", "assets/*.svg"]
