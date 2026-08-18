@@ -1,14 +1,14 @@
 from __future__ import annotations
 import argparse
 from pathlib import Path
-from guardianx.core.hardening import audit_hardening
-from guardianx.core.events import read_recent_events
-from guardianx.core.updater import active_signature_path, update_signatures
-from guardianx.core.ports import audit_open_ports
-from guardianx.core.process_monitor import detect_memory_misuse
-from guardianx.core.quarantine import QuarantineManager
-from guardianx.core.scanner import scan_paths
-from guardianx.core.logger import setup_logging
+from GuardianPy.core.hardening import audit_hardening
+from GuardianPy.core.events import read_recent_events
+from GuardianPy.core.updater import active_signature_path, update_signatures
+from GuardianPy.core.ports import audit_open_ports
+from GuardianPy.core.process_monitor import detect_memory_misuse
+from GuardianPy.core.quarantine import QuarantineManager
+from GuardianPy.core.scanner import scan_paths
+from GuardianPy.core.logger import setup_logging
 
 def _print_rows(title: str, rows: list) -> None:
     print(f"\n=== {title} ===")
@@ -20,7 +20,7 @@ def _print_rows(title: str, rows: list) -> None:
 
 def main(argv: list[str] | None = None) -> int:
     setup_logging(log_to_file=False)
-    parser = argparse.ArgumentParser(description="GuardianX defensive antimalware prototype")
+    parser = argparse.ArgumentParser(description="GuardianPy defensive antimalware prototype")
     sub = parser.add_subparsers(dest="cmd", required=True)
     
     scan = sub.add_parser("scan", help="Scan files/directories for signatures and heuristics")
