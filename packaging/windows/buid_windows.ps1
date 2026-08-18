@@ -5,6 +5,6 @@ py -m venv .venv-build
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 pip install pyinstaller
-pyinstaller packaging\windows\pyinstaller_guardianx.spec --clean --noconfirm
-Write-Host "EXE generado en dist\GuardianXCommunity.exe"
-Write-Host "Opcional: instala Inno Setup y compila packaging\windows\guardianx_installer.iss para crear GuardianXCommunitySetup.exe"
+pyinstaller packaging\windows\pyinstaller_GuardianPy.spec --clean --noconfirm
+Write-Host "EXE generado en dist\GuardianPyCommunity.exe"
+Write-Host "Opcional: instala Inno Setup y compila packaging\windows\GuardianPy_installer.iss para crear GuardianXCommunitySetup.exe"
