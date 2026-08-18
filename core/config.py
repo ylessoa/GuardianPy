@@ -4,10 +4,10 @@ import logging
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
-APP_NAME = "GuardianX"
+APP_NAME = "GuardianPy"
 APP_EDITION = "Community"
 APP_ID = "guardianx-community"
-DEFAULT_UPDATE_URL = "https://raw.githubusercontent.com/ylessoa/guardianx/main/signatures/signatures.json"
+DEFAULT_UPDATE_URL = "https://raw.githubusercontent.com/ylessoa/GuardianPy/main/signatures/signatures.json"
 # core/config.py (Dentro de la clase AppConfig)
 
 @dataclass(slots=True)
@@ -23,7 +23,7 @@ class AppConfig:
     auto_quarantine: bool = False
     
 def app_data_dir() -> Path:
-    base = Path.home() / ".guardianx"
+    base = Path.home() / ".GuardianPy"
     base.mkdir(parents=True, exist_ok=True)
     return base
 
