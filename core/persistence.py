@@ -4,8 +4,8 @@ import platform
 import logging
 
 def setup_autostart():
-    """Registra GuardianX para que inicie con Windows (solo funciona si es un .exe compilado)."""
-    log = logging.getLogger("guardianx")
+    """Registra GuardianPy para que inicie con Windows (solo funciona si es un .exe compilado)."""
+    log = logging.getLogger("GuardianPy")
     
     if platform.system() != "Windows":
         return
@@ -21,7 +21,7 @@ def setup_autostart():
         key_path = r"Software\Microsoft\Windows\CurrentVersion\Run"
         
         with winreg.OpenKey(winreg.HKEY_CURRENT_USER, key_path, 0, winreg.KEY_SET_VALUE) as key:
-            winreg.SetValueEx(key, "GuardianX", 0, winreg.REG_SZ, f'"{exe_path}"')
+            winreg.SetValueEx(key, "GuardianPy", 0, winreg.REG_SZ, f'"{exe_path}"')
         log.info("Auto-inicio con Windows configurado correctamente.")
     except Exception as e:
         log.error(f"No se pudo configurar el auto-inicio: {e}")
