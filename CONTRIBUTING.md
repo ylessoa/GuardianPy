@@ -1,4 +1,4 @@
-Contribuir a GuardianX Community
+Contribuir a GuardianPy Community
 Gracias por ayudar a mejorar GuardianX. Este proyecto acepta solo capacidades defensivas.
 
 Flujo recomendado
