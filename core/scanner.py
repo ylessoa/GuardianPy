@@ -30,7 +30,7 @@ def scan_paths(
     db = signatures or load_signatures(active_signature_path())
     findings: list[ThreatFinding] = []
     count = 0
-    logger = logging.getLogger("guardianx")
+    logger = logging.getLogger("GuardianPy")
     
     # Inicializar cliente de Threat Intel si se proporciona API Key
     threat_intel = ThreatIntel(api_key=vt_api_key) if vt_api_key else None
