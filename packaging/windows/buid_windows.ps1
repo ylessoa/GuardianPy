@@ -7,4 +7,4 @@ pip install -r requirements.txt
 pip install pyinstaller
 pyinstaller packaging\windows\pyinstaller_GuardianPy.spec --clean --noconfirm
 Write-Host "EXE generado en dist\GuardianPyCommunity.exe"
-Write-Host "Opcional: instala Inno Setup y compila packaging\windows\GuardianPy_installer.iss para crear GuardianXCommunitySetup.exe"
+Write-Host "Opcional: instala Inno Setup y compila packaging\windows\GuardianPy_installer.iss para crear GuardianPyCommunitySetup.exe"
