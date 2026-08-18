@@ -6,7 +6,7 @@ import time
 class ThreatIntel:
     def __init__(self, api_key: str = ""):
         self.api_key = api_key
-        self.log = logging.getLogger("guardianx")
+        self.log = logging.getLogger("GuardianPy")
         self.base_url = "https://www.virustotal.com/api/v3/files/"
         # Controlar rate limits (VirusTotal gratis permite 4 peticiones por minuto)
         self.last_request_time = 0 
