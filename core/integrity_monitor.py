@@ -11,7 +11,7 @@ class MassModificationDetector:
         self.time_window = time_window
         self.modifications = []
         self.lock = threading.Lock()
-        self.log = logging.getLogger("guardianx")
+        self.log = logging.getLogger("GuardianPy")
         
     def register_modification(self) -> bool:
         """Llama a esto cada vez que un archivo se modifica. Devuelve True si se superó el umbral."""
