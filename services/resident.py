@@ -4,17 +4,17 @@ import threading
 import argparse
 import signal
 from pathlib import Path
-from guardianx.core.config import load_config
-from guardianx.core.events import log_event
-from guardianx.core.process_monitor import detect_memory_misuse
-from guardianx.core.quarantine import QuarantineManager
-from guardianx.core.updater import active_signature_path
-from guardianx.core.scanner import scan_paths
-from guardianx.core.signatures import load_signatures
-from guardianx.core.logger import setup_logging
-from guardianx.core.realtime_monitor import RealtimeMonitor, RealtimeFileHandler
+from GuardianPy.core.config import load_config
+from GuardianPy.core.events import log_event
+from GuardianPy.core.process_monitor import detect_memory_misuse
+from GuardianPy.core.quarantine import QuarantineManager
+from GuardianPy.core.updater import active_signature_path
+from GuardianPy.core.scanner import scan_paths
+from GuardianPy.core.signatures import load_signatures
+from GuardianPy.core.logger import setup_logging
+from GuardianPy.core.realtime_monitor import RealtimeMonitor, RealtimeFileHandler
 # services/resident.py
-from guardianx.core.process_monitor import detect_memory_misuse, detect_exploit_behavior, terminate_process
+from GuardianPy.core.process_monitor import detect_memory_misuse, detect_exploit_behavior, terminate_process
 class ResidentGuard:
     def __init__(self) -> None:
         self.config = load_config()
@@ -52,7 +52,7 @@ class ResidentGuard:
                 self.log.error(f"Error en escaneo programado: {e}")
 
     def run_forever(self) -> None:
-        self.log.info("🛡️ GuardianX Resident Guard iniciado")
+        self.log.info("🛡️ GuardianPy Resident Guard iniciado")
         if self.config.realtime_enabled:
             try:
                 self.init_realtime_protection()
@@ -74,7 +74,7 @@ class ResidentGuard:
         if self.realtime_monitor:
             self.realtime_monitor.stop()
             self.log.info("Protección en tiempo real detenida.")
-        self.log.info("GuardianX Resident Guard detenido")
+        self.log.info("GuardianPy Resident Guard detenido")
 def monitor_usb_devices(self):
         """Hilo que vigila la conexión de memorias USB y las escanea automáticamente."""
         self.log.info("🖥️ Monitor de dispositivos USB iniciado.")
