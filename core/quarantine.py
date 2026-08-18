@@ -11,7 +11,7 @@ from .models import ThreatFinding
 
 class QuarantineManager:
     def __init__(self, base_dir: str | Path | None = None):
-        self.base_dir = Path(base_dir or Path.home() / ".guardianx" / "quarantine")
+        self.base_dir = Path(base_dir or Path.home() / ".GuardianPy" / "quarantine")
         self.base_dir.mkdir(parents=True, exist_ok=True)
         self.index_path = self.base_dir / "index.json"
         self.lock = threading.Lock()
