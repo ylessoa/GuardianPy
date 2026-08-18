@@ -1,4 +1,4 @@
-# verify_Guardianpy.py
+# verify_guardianpy.py
 import os
 import re
 from pathlib import Path
@@ -35,14 +35,14 @@ def check_imports():
     """Verifica que todas las importaciones críticas del nuevo paquete funcionen."""
     print("\n[2/4] Verificando importaciones del paquete 'guardianpy'...")
     try:
-        from guardianpy.core.config import AppConfig, load_config
-        from guardianpy.core.logger import setup_logging
-        from guardianpy.core.scanner import scan_paths
+        from GuardianPy.core.config import AppConfig, load_config
+        from GuardianPy.core.logger import setup_logging
+        from GuardianPy.core.scanner import scan_paths
         from guardianpy.core.pe_analyzer import analyze_pe_file
-        from guardianpy.core.threat_intel import ThreatIntel
-        from guardianpy.core.realtime_monitor import RealtimeMonitor
-        from guardianpy.services.resident import ResidentGuard
-        from guardianpy.ui.tk_app import GuardianXGUI
+        from GuardianPy.core.threat_intel import ThreatIntel
+        from GuardianPy.core.realtime_monitor import RealtimeMonitor
+        from GuardianPy.services.resident import ResidentGuard
+        from GuardianPy.ui.tk_app import GuardianXGUI
         print("  ✅ Todas las importaciones críticas funcionan correctamente.")
     except ImportError as e:
         print(f"  ❌ Error de importación: {e}")
@@ -54,7 +54,7 @@ def check_config():
     """Verifica que la configuración tenga el nuevo nombre de la app."""
     print("\n[3/4] Verificando configuración base...")
     try:
-        from guardianpy.core.config import APP_NAME, AppConfig
+        from GuardianPy.core.config import APP_NAME, AppConfig
         if APP_NAME == "GuardianPy":
             print("  ✅ APP_NAME configurado correctamente a 'GuardianPy'.")
         else:
@@ -77,12 +77,12 @@ def check_packaging():
         return
         
     content = pyproject.read_text(encoding='utf-8')
-    if 'name = "guardianpy"' in content:
-        print("  ✅ Nombre del paquete en pyproject.toml es 'guardianpy'.")
+    if 'name = "GuardianPy"' in content:
+        print("  ✅ Nombre del paquete en pyproject.toml es 'GuardianPy'.")
     else:
-        print("  ❌ El nombre en pyproject.toml no es 'guardianpy'.")
+        print("  ❌ El nombre en pyproject.toml no es 'GuardianPy'.")
         
-    if 'guardianpy = "guardianpy.cli:main"' in content and 'guardianpy-gui = "guardianpy.app:main"' in content:
+    if 'guardianpy = "guardianpy.cli:main"' in content and 'GuardianPy-gui = "guardianpy.app:main"' in content:
         print("  ✅ Puntos de entrada (entry_points) de consola y GUI correctos.")
     else:
         print("  ❌ Los puntos de entrada (comandos guardianpy/guardianpy-gui) no están configurados.")
