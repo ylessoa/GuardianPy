@@ -2,7 +2,7 @@
 #define MyAppName "GuardianPy Community"
 #define MyAppVersion "0.2.0"
 #define MyAppPublisher "GuardianPy Community"
-#define MyAppExeName "GuardianXCommunity.exe"
+#define MyAppExeName "GuardianPyCommunity.exe"
 
 [Setup]
 AppId={{A7D353D9-4D8B-4965-A09D-GUARDIANPY02}
@@ -14,7 +14,7 @@ DefaultGroupName=GuardianPy Community
 AllowNoIcons=yes
 LicenseFile=..\..\LICENSE
 OutputDir=..\..\dist-installer
-OutputBaseFilename=GuardianXCommunitySetup
+OutputBaseFilename=GuardianPyCommunitySetup
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
