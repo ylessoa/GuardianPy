@@ -13,7 +13,7 @@ a = Analysis(
     ['run_gui.py'],
     pathex=[str(root)],
     binaries=[],
-    datas=[('signatures', 'signatures'), ('guardianx/assets', 'GuardianPy/assets')],
+    datas=[('signatures', 'signatures'), ('GuardianPy/assets', 'GuardianPy/assets')],
     hiddenimports=['psutil'],
     hookspath=[],
     hooksconfig={},
