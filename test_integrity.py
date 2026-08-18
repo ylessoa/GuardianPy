@@ -8,16 +8,16 @@ def test_all_modules():
 
     try:
         # 1. Probar Configuración
-        from guardianx.core.config import load_config
+        from GuardianPy.core.config import load_config
         cfg = load_config()
         log.info("✅ Módulo 'config' OK")
 
         # 2. Probar PE Analyzer (Requiere 'pefile' instalado)
-        from guardianx.core.pe_analyzer import analyze_pe_file
+        from GuardianPy.core.pe_analyzer import analyze_pe_file
         log.info("✅ Módulo 'pe_analyzer' OK")
 
         # 3. Probar Process Monitor (Requiere 'psutil')
-        from guardianx.core.process_monitor import detect_memory_misuse, detect_exploit_behavior, terminate_process
+        from GuardianPy.core.process_monitor import detect_memory_misuse, detect_exploit_behavior, terminate_process
         log.info("✅ Módulo 'process_monitor' OK")
 
         # 4. Probar Realtime Monitor (Requiere 'watchdog')
@@ -29,7 +29,7 @@ def test_all_modules():
         log.info("✅ Módulo 'ui.tk_app' OK")
 
         # 6. Probar Resident
-        from guardianx.services.resident import ResidentGuard
+        from GuardianPy.services.resident import ResidentGuard
         log.info("✅ Módulo 'services.resident' OK")
 
         log.info("🎉 ¡Todas las importaciones están correctas! El código está íntegro.")
