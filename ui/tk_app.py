@@ -7,13 +7,13 @@ import logging
 from pathlib import Path
 from PIL import Image, ImageDraw
 import pystray
-from guardianx.core.scanner import scan_paths
-from guardianx.core.quarantine import QuarantineManager
+from GuardianPy.core.scanner import scan_paths
+from GuardianPy.core.quarantine import QuarantineManager
 
-class GuardianXGUI:
+class GuardianPyGUI:
     def __init__(self, root: tk.Tk):
         self.root = root
-        self.root.title("GuardianX Community - Panel de Control")
+        self.root.title("GuardianPy Community - Panel de Control")
         self.root.geometry("750x550")
         self.root.configure(bg="#1e1e1e")
         self.log_queue = queue.Queue()
@@ -25,7 +25,7 @@ class GuardianXGUI:
     def build_ui(self):
         header = tk.Frame(self.root, bg="#007acc", height=50)
         header.pack(fill=tk.X)
-        tk.Label(header, text="🛡️ GuardianX Community", fg="white", bg="#007acc", font=("Arial", 16, "bold")).pack(pady=10)
+        tk.Label(header, text="🛡️ GuardianPy Community", fg="white", bg="#007acc", font=("Arial", 16, "bold")).pack(pady=10)
 
         status_frame = tk.Frame(self.root, bg="#1e1e1e")
         status_frame.pack(pady=10, padx=20, fill=tk.X)
