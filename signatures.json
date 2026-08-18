@@ -1,0 +1,49 @@
+{
+  "version": "2026.07.25-local",
+  "hashes_sha256": {
+    "275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f": "Demo-Test-File"
+  },
+  "rules": [
+    {
+      "id": "suspicious_powershell_download_exec",
+      "name": "PowerShell downloader/executor pattern",
+      "severity": "high",
+      "extensions": [".ps1", ".bat", ".cmd", ".txt", ".js", ".vbs"],
+      "all": ["powershell", "downloadstring"],
+      "any": ["iex", "invoke-expression", "frombase64string", "hidden"]
+    },
+    {
+      "id": "credential_dump_keywords",
+      "name": "Credential dumping keywords",
+      "severity": "high",
+      "extensions": [".txt", ".ps1", ".bat", ".cmd", ".py", ".js", ".vbs"],
+      "all": ["lsass"],
+      "any": ["minidump", "procdump", "sekurlsa", "creds"]
+    },
+    {
+      "id": "persistence_registry_run_key",
+      "name": "Windows Run-key persistence script",
+      "severity": "medium",
+      "extensions": [".reg", ".bat", ".cmd", ".ps1", ".vbs"],
+      "all": ["currentversion\\run"],
+      "any": ["reg add", "wscript", "powershell", "cmd.exe"]
+    },
+    {
+      "id": "linux_reverse_shell_pattern",
+      "name": "Linux reverse-shell style command",
+      "severity": "high",
+      "extensions": [".sh", ".txt", ".py", ".pl"],
+      "all": ["/dev/tcp/"],
+      "any": ["bash -i", "nc -e", "mkfifo"]
+    }
+  ],
+  "risky_ports": {
+    "21": "FTP should not be exposed unless explicitly needed.",
+    "23": "Telnet is insecure; use SSH instead.",
+    "135": "Windows RPC exposed locally/remotely can increase attack surface.",
+    "139": "NetBIOS file sharing exposure.",
+    "445": "SMB exposure; disable or firewall if not required.",
+    "3389": "Remote Desktop; require VPN/MFA/firewall allowlist.",
+    "5900": "VNC; should be firewalled and strongly authenticated."
+  }
+}
