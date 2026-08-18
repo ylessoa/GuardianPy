@@ -1,29 +1,18 @@
-[build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "guardianx"
-version = "0.3.0"
-description = "GuardianX Community: Suite defensiva antivirus en Python con protección en tiempo real"
-readme = "README.md"
-requires-python = ">=3.9"
-license = {text = "MIT"}
-authors = [{name = "ylessoa"}]
-dependencies = [
-    "psutil>=5.9",
-    "watchdog>=3.0.0",
-    "pystray>=0.19.5",
-    "Pillow>=10.0.0",
-]
-
-[project.optional-dependencies]
-dev = ["pytest", "pytest-cov"]
+version = "0.2.0"
+description = "GuardianX Community defensive antimalware suite: scanner, quarantine, resident guard, signatures, ports and hardening."
+requires-python = ">=3.10"
+authors = [{name = "Skywork Code"}]
+dependencies = ["psutil>=5.9.0"]
 
 [project.scripts]
 guardianx = "guardianx.cli:main"
-guardianx-gui = "guardianx.app:main"
+guardianx-gui = "guardianx.ui.tk_app:main"
+guardianx-resident = "guardianx.service.resident:main"
 
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["guardianx*"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools.package-data]
+guardianx = ["signatures/*.json", "assets/*.svg"]
