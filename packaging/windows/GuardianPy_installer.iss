@@ -1,15 +1,15 @@
-; Inno Setup script. Build after PyInstaller creates dist\GuardianXCommunity.exe.
+; Inno Setup script. Build after PyInstaller creates dist\GuardianPyCommunity.exe.
 #define MyAppName "GuardianPy Community"
 #define MyAppVersion "0.2.0"
 #define MyAppPublisher "GuardianPy Community"
 #define MyAppExeName "GuardianXCommunity.exe"
 
 [Setup]
-AppId={{A7D353D9-4D8B-4965-A09D-GUARDIANX02}
+AppId={{A7D353D9-4D8B-4965-A09D-GUARDIANPY02}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppPublisher={#MyAppPublisher}
-DefaultDirName={autopf}\GuardianX Community
+DefaultDirName={autopf}\GuardianPy Community
 DefaultGroupName=GuardianPy Community
 AllowNoIcons=yes
 LicenseFile=..\..\LICENSE
