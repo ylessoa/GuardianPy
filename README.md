@@ -1,7 +1,7 @@
-GuardianX Community
-GuardianX Community es una suite defensiva antivirus / antimalware / antitroyanos en Python, diseñada con una experiencia visual inspirada en Avast, Bitdefender y Norton, pero con una arquitectura abierta y lista para GitHub.
+GuardianPy Community
+GuardianPy Community es una suite defensiva antivirus / antimalware / antitroyanos en Python, diseñada con una experiencia visual inspirada en Avast, Bitdefender y Norton, pero con una arquitectura abierta y lista para GitHub.
 
-GuardianX Community no incluye capacidades ofensivas. Su objetivo es detectar, contener y reducir superficie de ataque.
+GuardianPy Community no incluye capacidades ofensivas. Su objetivo es detectar, contener y reducir superficie de ataque.
 
 Novedades versión 0.2 profesional
 Panel gráfico rediseñado tipo suite comercial.
@@ -30,50 +30,50 @@ botón de actualización de firmas,
 acción de encapsulado.
 Instalación para desarrollo
 bash 
-cd guardianx
+cd GuardianPy
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\\Scripts\\Activate.ps1
 pip install -r requirements.txt
 pip install -e .
 Ejecutar panel gráfico
 bash 
-guardianx-gui
+GuardianPy-gui
 Alternativas:
 
 bash 
-python -m guardianx.app
+python -m GuardianPy.app
 python run_gui.py
 Uso CLI
 bash 
 # Escanear una carpeta
-guardianx scan ~/Downloads
+GuardianPy scan ~/Downloads
 
 # Escanear y encapsular automáticamente detecciones
-guardianx scan ~/Downloads --quarantine
+GuardianPy scan ~/Downloads --quarantine
 
 # Revisar procesos por memoria/CPU/conexiones
-guardianx monitor
+GuardianPy monitor
 
 # Auditar puertos peligrosos abiertos
-guardianx ports
+GuardianPy ports
 
 # Recomendaciones de hardening
-guardianx harden
+GuardianPy harden
 
 # Actualizar firmas desde GitHub/raw HTTPS
-guardianx update
+GuardianPy update
 
 # Ejecutar un ciclo de protección residente
-guardianx resident --once
+GuardianPy resident --once
 
 # Ejecutar guardián residente continuamente
-guardianx resident
+GuardianPy resident
 
 # Ver eventos recientes
-guardianx events
+GuardianPy events
 
 # Auditoría completa
-guardianx full ~/Downloads
+GuardianPy full ~/Downloads
 Windows: crear .exe
 En Windows:
 
@@ -83,7 +83,7 @@ packaging\windows\build_windows.ps1
 Salida:
 
 text 
-dist\GuardianXCommunity.exe
+dist\GuardianPyCommunity.exe
 Windows: crear instalador .exe
 Instala Inno Setup.
 Genera primero el EXE portable.
@@ -93,11 +93,11 @@ packaging\windows\guardianx_installer.iss
 Salida:
 
 text 
-dist-installer\GuardianXCommunitySetup.exe
+dist-installer\GuardianPyCommunitySetup.exe
 Más detalles en docs/WINDOWS_BUILD.md.
 
 Servicio residente Windows
-GuardianX Community puede instalarse como tarea programada al inicio de sesión:
+GuardianPy Community puede instalarse como tarea programada al inicio de sesión:
 
 powershell 
 .\install_windows.ps1
@@ -105,37 +105,37 @@ packaging\windows\install_resident_task.ps1
 La tarea se llama:
 
 text 
-GuardianX Resident Guard
+GuardianPy Resident Guard
 Actualización de firmas
 El actualizador descarga un JSON de firmas desde HTTPS. Por defecto apunta a:
 
 text 
-https://raw.githubusercontent.com/ylessoa/guardianx/main/signatures/signatures.json
+https://raw.githubusercontent.com/ylessoa/GuardianPy/main/signatures/signatures.json
 Cambia la URL con:
 
 bash 
 guardianx update --url https://tu-servidor/signatures.json
 Arquitectura
 text 
-guardianx/
-  guardianx/core/scanner.py          # Motor de escaneo
-  guardianx/core/signatures.py       # Carga de firmas
-  guardianx/core/updater.py          # Actualización de firmas
-  guardianx/core/quarantine.py       # Cuarentena
-  guardianx/core/process_monitor.py  # Procesos: memoria/CPU/red
-  guardianx/core/ports.py            # Puertos riesgosos
-  guardianx/core/hardening.py        # Hardening
-  guardianx/core/events.py           # Eventos del residente
-  guardianx/service/resident.py      # Guardián residente
-  guardianx/ui/tk_app.py             # Panel profesional
+GuardianPy/
+  GuardianPy/core/scanner.py          # Motor de escaneo
+  GuardianPy/core/signatures.py       # Carga de firmas
+  GuardianPy/core/updater.py          # Actualización de firmas
+  GuardianPy/core/quarantine.py       # Cuarentena
+  GuardianPy/core/process_monitor.py  # Procesos: memoria/CPU/red
+  GuardianPy/core/ports.py            # Puertos riesgosos
+  GuardianPy/core/hardening.py        # Hardening
+  GuardianPy/core/events.py           # Eventos del residente
+  GuardianPy/service/resident.py      # Guardián residente
+  GuardianPy/ui/tk_app.py             # Panel profesional
   packaging/windows/                 # EXE e instalador
 Publicar en GitHub
 bash 
 git init
 git add .
-git commit -m "GuardianX Community 0.2"
+git commit -m "GuardianPy Community 0.2"
 git branch -M main
-git remote add origin https://github.com/ylessoa/guardianx.git
+git remote add origin https://github.com/ylessoa/GuardianPy.git
 git push -u origin main
 Pruebas
 bash 
@@ -144,5 +144,5 @@ Roadmap
 Consulta docs/ROADMAP.md.
 
 Seguridad y ética
-GuardianX está diseñado solo para defensa. No se aceptan módulos de explotación, evasión, persistencia ofensiva, robo de credenciales, payloads o loaders.
+GuardianPy está diseñado solo para defensa. No se aceptan módulos de explotación, evasión, persistencia ofensiva, robo de credenciales, payloads o loaders.
 
