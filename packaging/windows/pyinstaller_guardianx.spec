@@ -1,7 +1,7 @@
-# PyInstaller spec for GuardianX Community.
+# PyInstaller spec for GuardianPy Community.
 # Build on Windows for a native .exe:
 #   pip install pyinstaller pillow
-#   pyinstaller packaging/windows/pyinstaller_guardianx.spec --clean --noconfirm
+#   pyinstaller packaging/windows/pyinstaller_GuardianPy.spec --clean --noconfirm
 
 from pathlib import Path
 from PyInstaller.utils.hooks import collect_data_files
@@ -13,7 +13,7 @@ a = Analysis(
     ['run_gui.py'],
     pathex=[str(root)],
     binaries=[],
-    datas=[('signatures', 'signatures'), ('guardianx/assets', 'guardianx/assets')],
+    datas=[('signatures', 'signatures'), ('guardianx/assets', 'GuardianPy/assets')],
     hiddenimports=['psutil'],
     hookspath=[],
     hooksconfig={},
@@ -32,7 +32,7 @@ exe = EXE(
     a.zipfiles,
     a.datas,
     [],
-    name='GuardianXCommunity',
+    name='GuardianPyCommunity',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
