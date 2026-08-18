@@ -8,10 +8,10 @@ import threading
 from pathlib import Path
 from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
-from guardianx.core.scanner import scan_paths
-from guardianx.core.quarantine import QuarantineManager
-from guardianx.core.signatures import SignatureDB
-from guardianx.core.integrity_monitor import MassModificationDetector
+from GuardianPy.core.scanner import scan_paths
+from GuardianPy.core.quarantine import QuarantineManager
+from GuardianPy.core.signatures import SignatureDB
+from GuardianPy.core.integrity_monitor import MassModificationDetector
 import psutil
 
 class RealtimeFileHandler(FileSystemEventHandler):
