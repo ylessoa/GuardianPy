@@ -52,6 +52,6 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon='asset/guardianx.ico', # Ruta a tu icono
+    icon='asset/GuardianPy.ico', # Ruta a tu icono
     uac_admin=True, # SOLICITA PERMISOS DE ADMINISTRADOR AUTOMÁTICAMENTE
 )
