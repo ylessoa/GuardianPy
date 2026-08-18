@@ -1,5 +1,5 @@
 Política de seguridad
-GuardianX Community es una herramienta defensiva. Si encuentras una vulnerabilidad:
+GuardianPy Community es una herramienta defensiva. Si encuentras una vulnerabilidad:
 
 No publiques exploits funcionales.
 Abre un reporte privado en GitHub Security Advisories cuando el repositorio esté publicado.
