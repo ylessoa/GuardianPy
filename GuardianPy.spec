@@ -1,7 +1,7 @@
-# guardianx.spec
+# GuardianPy.spec
 # -*- mode: python ; coding: utf-8 -*-
 
-block_cipher = pyz_crypto.PyiZstdCipher(key='guardianx_secret_key') if False else None
+block_cipher = pyz_crypto.PyiZstdCipher(key='GuardianPy_secret_key') if False else None
 
 a = Analysis(
     ['app.py'],
@@ -39,7 +39,7 @@ exe = EXE(
     a.zipfiles,
     a.datas,
     [],
-    name='GuardianX',
+    name='GuardianPy',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
