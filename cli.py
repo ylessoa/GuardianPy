@@ -83,7 +83,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
         
     if args.cmd == "resident":
-        from guardianx.services.resident import main as resident_main
+        from GuardianPy.services.resident import main as resident_main
         return resident_main(["--once"] if args.once else [])
         
     if args.cmd == "full":
