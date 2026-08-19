@@ -14,8 +14,6 @@ from core.signatures import SignatureDB, load_signatures
 from core.updater import active_signature_path
 from services.resident import ResidentGuard
 
-
-
 def scan_file(path):
     rules = yara.compile(filepath="rules/eicar.yar")
     matches = rules.match(path)
