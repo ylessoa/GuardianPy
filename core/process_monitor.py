@@ -1,10 +1,6 @@
 from __future__ import annotations
 import psutil
 from .models import ProcessFinding
-# core/process_monitor.py (Añadir a las funciones existentes)
-
-import psutil
-from .models import ProcessFinding
 
 # Procesos de oficina y navegadores que NO deberían lanzar consolas
 PARENT_TARGETS = {
@@ -16,26 +12,19 @@ PARENT_TARGETS = {
 SUSPICIOUS_CHILDREN = {
     "cmd.exe", "powershell.exe", "wscript.exe", "cscript.exe", "mshta.exe", "rundll32.exe"
 }
-# core/process_monitor.py (Añadir al final del archivo)
 
 def detect_crawler_behavior() -> list[ProcessFinding]:
     """Detecta procesos que están haciendo muchas peticiones de red (comportamiento crawler/bot)."""
     findings: list[ProcessFinding] = []
-    
-    # Umbral: Si un proceso tiene más de 50 conexiones ESTABLECIDAS o en escucha, es sospechoso
     CRAWLER_CONNECTION_THRESHOLD = 50
     
     for proc in psutil.process_iter(["pid", "name"]):
         try:
-            # Obtener conexiones donde el PC local se conecta a una IP remota
             connections = proc.net_connections(kind="inet")
-            
-            # Filtrar solo las conexiones activas (ESTABLISHED) que apuntan a una IP remota
             active_remote_conns = [
                 c for c in connections 
                 if c.status == psutil.CONN_ESTABLISHED and c.raddr
             ]
-            
             if len(active_remote_conns) > CRAWLER_CONNECTION_THRESHOLD:
                 findings.append(
                     ProcessFinding(
@@ -50,8 +39,8 @@ def detect_crawler_behavior() -> list[ProcessFinding]:
                 )
         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
             continue
-            
     return findings
+
 def detect_exploit_behavior() -> list[ProcessFinding]:
     findings: list[ProcessFinding] = []
     for proc in psutil.process_iter(["pid", "name", "ppid"]):
@@ -71,10 +60,10 @@ def detect_exploit_behavior() -> list[ProcessFinding]:
                                     name=proc_name,
                                     severity="high",
                                     reason=f"Suspicious child {proc_name} with parent {parent_name}"
-                                 )
+                                )
                             )
                     except (psutil.NoSuchProcess, psutil.AccessDenied):
-                        continue  # El padre murió muy rápido
+                        continue
         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
             continue
     return findings
@@ -118,21 +107,17 @@ def detect_memory_misuse(memory_mb_threshold: float = 1024, cpu_threshold: float
                 )
             )
     return sorted(findings, key=lambda f: (f.severity, f.rss_mb), reverse=True)
-   
-# core/process_monitor.py 
 
 def terminate_process(pid: int) -> bool:
     """Intenta matar un proceso de forma agresiva."""
     try:
         proc = psutil.Process(pid)
-        proc_name = proc.name()
-        proc.kill() # Mata el proceso
-        proc.wait(timeout=3) # Espera a que cierre
+        proc.kill()
+        proc.wait(timeout=3)
         return True
     except psutil.NoSuchProcess:
         return False
     except psutil.AccessDenied:
-        # En Windows/Linux, si el proceso tiene privilegios más altos (UAC), no se puede matar
         return False
     except Exception:
         return False
