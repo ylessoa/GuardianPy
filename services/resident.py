@@ -23,6 +23,16 @@ class ResidentGuard:
         self.realtime_monitor = None
         self.known_drives = set()
         self.last_full_scan_time = 0.0
+
+class ResidentGuard:
+    def __init__(self) -> None:
+        self.config = load_config()
+        self.stop_event = threading.Event()
+        self.quarantine = QuarantineManager()
+        self.log = setup_logging(log_to_file=True)
+        self.realtime_monitor = None
+        self.known_drives = set()
+        self.last_full_scan_time = 0.0
     def monitor_usb_devices(self):
         """Vigila la conexión de memorias USB y las escanea automáticamente."""
         self.log.info("🖥️ Monitor de dispositivos USB iniciado.")
