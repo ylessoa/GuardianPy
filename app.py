@@ -6,6 +6,12 @@ import logging
 from GuardianPy.ui.tk_app import GuardianPyGUI, QueueLogHandler
 from GuardianPy.core.logger import setup_logging
 from GuardianPy.core.persistence import setup_autostart # NUEVO IMPORT
+from guardianpy.gui import start_gui
+
+if __name__ == "__main__":
+    
+    start_gui()
+
 
 def main():
     root = tk.Tk()
