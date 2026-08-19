@@ -129,9 +129,3 @@ class QueueLogHandler(logging.Handler):
         self.log_queue = log_queue
     def emit(self, record):
         self.log_queue.put(self.format(record))
-        
-    def quit_app(self, icon=None, item=None):
-    self.tray_icon.stop()
-    # Si guardaste una referencia al hilo de ResidentGuard, detén su evento aquí:
-    # if self.guard: self.guard.stop()
-    self.root.after(0, self.root.destroy)
