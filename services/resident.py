@@ -80,6 +80,7 @@ class ResidentGuard:
     except Exception as e:
         self.log.error(f"Error escaneando USB {drive_path}: {e}")
 
+
     def monitor_system_cycle(self):
         """Monitorea procesos y detecta comportamientos sospechosos."""
         proc_findings = detect_memory_misuse(
