@@ -62,24 +62,23 @@ class ResidentGuard:
                 self.log.error(f"Error en monitor de USB: {e}")
             self.stop_event.wait(10)
 
-    def scan_usb(self, drive_path):
-    """Escanea una memoria USB recién conectada."""
-    try:
-        findings = scan_paths([drive_path], vt_api_key=self.config.vt_api_key)
-        if findings:
-            for f in findings:
-                self.log.warning(f"🚨 Amenaza en USB: {f.threat} en {f.path}")
-                if self.config.auto_quarantine:
-                    try:
-                        self.quarantine.quarantine(f)
-                        self.log.info(f"Archivo de USB neutralizado: {f.path}")
-                    except Exception as e:
-                        self.log.error(f"No se pudo cuarentenar {f.path}: {e}")
-        else:
-            self.log.info(f"✅ Escaneo de USB {drive_path} finalizado. Sin amenazas.")
-    except Exception as e:
-        self.log.error(f"Error escaneando USB {drive_path}: {e}")
-
+     def scan_usb(self, drive_path):
+        """Escanea una memoria USB recién conectada."""
+        try:
+            findings = scan_paths([drive_path], vt_api_key=self.config.vt_api_key)
+            if findings:
+                for f in findings:
+                    self.log.warning(f"🚨 Amenaza en USB: {f.threat} en {f.path}")
+                    if self.config.auto_quarantine:
+                        try:
+                            self.quarantine.quarantine(f)
+                            self.log.info(f"Archivo de USB neutralizado: {f.path}")
+                        except Exception as e:
+                            self.log.error(f"No se pudo cuarentenar {f.path}: {e}")
+            else:
+                self.log.info(f"✅ Escaneo de USB {drive_path} finalizado. Sin amenazas.")
+        except Exception as e:
+            self.log.error(f"Error escaneando USB {drive_path}: {e}")
 
     def monitor_system_cycle(self):
         """Monitorea procesos y detecta comportamientos sospechosos."""
