@@ -7,7 +7,7 @@ import os
 from pathlib import Path
 from typing import Callable, Iterable
 
-from pe_analyzer import analyze_pe_file
+from core.pe_analyzer import analyze_pe_file
 from threat_intel import ThreatIntel
 from models import ThreatFinding
 from signatures import SignatureDB, load_signatures
