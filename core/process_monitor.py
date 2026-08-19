@@ -64,7 +64,7 @@ def detect_exploit_behavior() -> list[ProcessFinding]:
                     try:
                         parent = psutil.Process(ppid)
                         parent_name = parent.name().lower()
-                        if parent_name in PARENT_TARGETS:
+                    if parent_name in PARENT_TARGETS:
                             # ... (añadir a findings)
                     except (psutil.NoSuchProcess, psutil.AccessDenied):
                         continue # El padre murió muy rápido
