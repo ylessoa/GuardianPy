@@ -1,14 +1,21 @@
-from __future__ import annotations
-from .pe_analyzer import analyze_pe_file
-from .threat_intel import ThreatIntel
 import logging
 import hashlib
 import os
+import yara
+from __future__ import annotations
+from .pe_analyzer import analyze_pe_file
+from .threat_intel import ThreatIntel
 from pathlib import Path
 from typing import Callable, Iterable
 from .models import ThreatFinding
 from .signatures import SignatureDB, load_signatures
 from .updater import active_signature_path
+
+
+def scan_file(path):
+    rules = yara.compile(filepath="rules/eicar.yar")
+    matches = rules.match(path)
+    return matches
 
 TEXT_EXTENSIONS = {".ps1", ".bat", ".cmd", ".js", ".vbs", ".sh", ".py", ".pl", ".reg", ".txt"}
 EXECUTABLE_EXTENSIONS = {".exe", ".dll", ".sys"}
