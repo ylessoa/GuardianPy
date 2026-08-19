@@ -2,4 +2,10 @@ psutil
 requests
 yara-python
 pytest
-
+pillow
+pystray
+colorama
+cryptography
+pywin32
+watchdog
+click
