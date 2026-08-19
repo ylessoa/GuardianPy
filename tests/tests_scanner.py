@@ -2,6 +2,14 @@ from pathlib import Path
 from guardianx.core.scanner import scan_paths
 from guardianx.core.signatures import load_signatures
 from guardianx.core.quarantine import QuarantineManager
+from core.scanner import scan_file
+import tempfile
+
+def test_eicar_detection():
+    with tempfile.NamedTemporaryFile("w", delete=False) as f:
+        f.write("EICAR-STANDARD-ANTIVIRUS-TEST-FILE")
+        f.flush()
+        assert scan_file(f.name)
 
 def test_heuristic_detects_suspicious_powershell(tmp_path: Path):
     sample = tmp_path / "dropper.ps1"
