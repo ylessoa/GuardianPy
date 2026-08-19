@@ -1,7 +1,8 @@
-i# core/persistence.py
+# core/persistence.py
 import sys
 import platform
 import logging
+from services.resident import ResidentGuard
 
 def setup_autostart():
     """Registra GuardianPy para que inicie con Windows (solo funciona si es un .exe compilado)."""
