@@ -3,10 +3,10 @@ import tkinter as tk
 import threading
 import logging
 
-from GuardianPy.ui.tk_app import GuardianPyGUI, QueueLogHandler
-from GuardianPy.core.logger import setup_logging
-from GuardianPy.core.persistence import setup_autostart
-from GuardianPy.services.resident import ResidentGuard
+from ui.tk_app import GuardianPyGUI, QueueLogHandler
+from core.logger import setup_logging
+from core.persistence import setup_autostart
+from services.resident import ResidentGuard
 
 def main():
     root = tk.Tk()
