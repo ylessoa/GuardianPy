@@ -1,16 +1,19 @@
+from __future__ import annotations
+
 import logging
+import yara
 import hashlib
 import os
-import yara
-from __future__ import annotations
-from .pe_analyzer import analyze_pe_file
-from .threat_intel import ThreatIntel
 from pathlib import Path
 from typing import Callable, Iterable
-from .models import ThreatFinding
-from .signatures import SignatureDB, load_signatures
-from .updater import active_signature_path
+
+from pe_analyzer import analyze_pe_file
+from threat_intel import ThreatIntel
+from models import ThreatFinding
+from signatures import SignatureDB, load_signatures
+from updater import active_signature_path
 from services.resident import ResidentGuard
+
 
 def scan_file(path):
     rules = yara.compile(filepath="rules/eicar.yar")
