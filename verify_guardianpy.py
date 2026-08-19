@@ -35,14 +35,14 @@ def check_imports():
     """Verifica que todas las importaciones críticas del nuevo paquete funcionen."""
     print("\n[2/4] Verificando importaciones del paquete 'guardianpy'...")
     try:
-        from GuardianPy.core.config import AppConfig, load_config
-        from GuardianPy.core.logger import setup_logging
-        from GuardianPy.core.scanner import scan_paths
-        from guardianpy.core.pe_analyzer import analyze_pe_file
-        from GuardianPy.core.threat_intel import ThreatIntel
-        from GuardianPy.core.realtime_monitor import RealtimeMonitor
-        from GuardianPy.services.resident import ResidentGuard
-        from GuardianPy.ui.tk_app import GuardianXGUI
+        from core.config import AppConfig, load_config
+        from core.logger import setup_logging
+        from core.scanner import scan_paths
+        from core.pe_analyzer import analyze_pe_file
+        from core.threat_intel import ThreatIntel
+        from core.realtime_monitor import RealtimeMonitor
+        from services.resident import ResidentGuard
+        from ui.tk_app import GuardianXGUI
         print("  ✅ Todas las importaciones críticas funcionan correctamente.")
     except ImportError as e:
         print(f"  ❌ Error de importación: {e}")
