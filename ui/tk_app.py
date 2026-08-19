@@ -8,7 +8,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 import pystray
 from core.scanner import scan_paths
-from GuardianPy.core.quarantine import QuarantineManager
+from core.quarantine import QuarantineManager
 
 class GuardianPyGUI:
     def __init__(self, root: tk.Tk):
