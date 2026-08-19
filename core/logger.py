@@ -1,6 +1,7 @@
 import logging
 import logging.handlers
 from .config import app_data_dir
+from services.resident import ResidentGuard
 
 def setup_logging(verbose: bool = False, log_to_file: bool = True):
     """Configura el sistema de logging para GuardianPy."""
