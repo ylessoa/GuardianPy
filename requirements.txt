@@ -6,6 +6,6 @@ pillow
 pystray
 colorama
 cryptography
-pywin32
+pywin32==306
 watchdog
 click
