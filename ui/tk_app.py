@@ -7,7 +7,7 @@ import logging
 from pathlib import Path
 from PIL import Image, ImageDraw
 import pystray
-from GuardianPy.core.scanner import scan_paths
+from core.scanner import scan_paths
 from GuardianPy.core.quarantine import QuarantineManager
 
 class GuardianPyGUI:
