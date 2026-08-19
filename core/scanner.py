@@ -8,11 +8,12 @@ from pathlib import Path
 from typing import Callable, Iterable
 
 from core.pe_analyzer import analyze_pe_file
-from threat_intel import ThreatIntel
-from models import ThreatFinding
-from signatures import SignatureDB, load_signatures
-from updater import active_signature_path
+from core.threat_intel import ThreatIntel
+from core.models import ThreatFinding
+from core.signatures import SignatureDB, load_signatures
+from core.updater import active_signature_path
 from services.resident import ResidentGuard
+
 
 
 def scan_file(path):
