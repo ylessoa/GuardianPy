@@ -93,7 +93,7 @@ def monitor_usb_devices(self):
          # services/resident.py (Dentro de monitor_usb_devices, corrige la llamada a scan_paths)
 
                     # Escanear la USB en un hilo separado para no congelar el monitor
-        def scan_usb(drive_path):
+    def scan_usb(drive_path):
                         # FIX: Pasar la API key correcta desde la configuración
                         findings = scan_paths([drive_path], vt_api_key=self.config.vt_api_key)
                         if findings:
