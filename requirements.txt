@@ -1,6 +1,5 @@
-
 psutil
 requests
 yara-python
 pytest
-tkinter; sys_platform == 'win32'
+
