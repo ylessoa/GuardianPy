@@ -8,6 +8,7 @@ from GuardianPy.core.logger import setup_logging
 from GuardianPy.core.persistence import setup_autostart # NUEVO IMPORT
 from guardianpy.gui import start_gui
 from guardianpy.gui.main import start_gui  # ajusta según el módulo real
+from ui.main import start_gui
 
 if __name__ == "__main__":
     
