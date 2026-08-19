@@ -1,3 +1,8 @@
+from __future__ import annotations
+import tkinter as tk
+import threading
+import logging
+
 from ui.tk_app import GuardianPyGUI, QueueLogHandler
 from core.logger import setup_logging
 from core.persistence import setup_autostart
