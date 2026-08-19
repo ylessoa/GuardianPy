@@ -1,14 +1,14 @@
 from __future__ import annotations
 import argparse
 from pathlib import Path
-from GuardianPy.core.hardening import audit_hardening
-from GuardianPy.core.events import read_recent_events
-from GuardianPy.core.updater import active_signature_path, update_signatures
-from GuardianPy.core.ports import audit_open_ports
-from GuardianPy.core.process_monitor import detect_memory_misuse
-from GuardianPy.core.quarantine import QuarantineManager
-from GuardianPy.core.scanner import scan_paths
-from GuardianPy.core.logger import setup_logging
+from core.hardening import audit_hardening
+from core.events import read_recent_events
+from core.updater import active_signature_path, update_signatures
+from core.ports import audit_open_ports
+from core.process_monitor import detect_memory_misuse
+from core.quarantine import QuarantineManager
+from core.scanner import scan_paths
+from core.logger import setup_logging
 
 def _print_rows(title: str, rows: list) -> None:
     print(f"\n=== {title} ===")
