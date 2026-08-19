@@ -4,13 +4,13 @@ import threading
 import argparse
 import signal
 from pathlib import Path
-from GuardianPy.core.config import load_config
-from GuardianPy.core.events import log_event
-from GuardianPy.core.process_monitor import detect_memory_misuse
-from GuardianPy.core.quarantine import QuarantineManager
-from GuardianPy.core.updater import active_signature_path
-from GuardianPy.core.scanner import scan_paths
-from GuardianPy.core.signatures import load_signatures
+from core.config import load_config
+from core.events import log_event
+from core.process_monitor import detect_memory_misuse
+from core.quarantine import QuarantineManager
+from core.updater import active_signature_path
+from core.scanner import scan_paths
+from core.signatures import load_signatures
 from core.logger import setup_logging
 from GuardianPy.core.realtime_monitor import RealtimeMonitor, RealtimeFileHandler
 # services/resident.py
