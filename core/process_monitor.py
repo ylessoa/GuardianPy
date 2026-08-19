@@ -71,8 +71,9 @@ def detect_exploit_behavior() -> list[ProcessFinding]:
                                     name=proc_name,
                                     severity="high",
                                     reason=f"Suspicious child {proc_name} with parent {parent_name}"
-                                )
+                                 )
                             )
+
                     except (psutil.NoSuchProcess, psutil.AccessDenied):
                         continue  # El padre murió muy rápido
         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
