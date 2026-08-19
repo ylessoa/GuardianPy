@@ -11,7 +11,7 @@ from GuardianPy.core.quarantine import QuarantineManager
 from GuardianPy.core.updater import active_signature_path
 from GuardianPy.core.scanner import scan_paths
 from GuardianPy.core.signatures import load_signatures
-from GuardianPy.core.logger import setup_logging
+from core.logger import setup_logging
 from GuardianPy.core.realtime_monitor import RealtimeMonitor, RealtimeFileHandler
 # services/resident.py
 from GuardianPy.core.process_monitor import detect_memory_misuse, detect_exploit_behavior, terminate_process
