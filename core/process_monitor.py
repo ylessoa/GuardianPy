@@ -65,12 +65,20 @@ def detect_exploit_behavior() -> list[ProcessFinding]:
                         parent = psutil.Process(ppid)
                         parent_name = parent.name().lower()
                         if parent_name in PARENT_TARGETS:
-                            # ... (añadir a findings)
+                            findings.append(
+                                ProcessFinding(
+                                    pid=proc.pid,
+                                    name=proc_name,
+                                    severity="high",
+                                    reason=f"Suspicious child {proc_name} with parent {parent_name}"
+                                )
+                            )
                     except (psutil.NoSuchProcess, psutil.AccessDenied):
-                        continue # El padre murió muy rápido
+                        continue  # El padre murió muy rápido
         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
             continue
     return findings
+
 def detect_memory_misuse(memory_mb_threshold: float = 1024, cpu_threshold: float = 85, max_connections: int = 80) -> list[ProcessFinding]:
     findings: list[ProcessFinding] = []
     psutil.cpu_percent(None)
