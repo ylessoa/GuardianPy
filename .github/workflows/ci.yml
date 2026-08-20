@@ -48,6 +48,19 @@ jobs:
           exit 1
         fi
         echo "✅ No invalid imports found in Python code"
+    - name: Fix imports (Windows)
+      if: runner.os == 'Windows'
+      run: |
+      Write-Host "🔍 Verificando ruta actual..."
+      Get-Location
+      Write-Host "📂 Archivos disponibles:"
+      Get-ChildItem -Path . -Name
+        if (Test-Path "$PWD\fix_imports_extended.ps1") {
+        Write-Host "✅ Script encontrado, ejecutando..."
+        powershell.exe -ExecutionPolicy Bypass -File "$PWD\fix_imports_extended.ps1"
+        } else {
+          Write-Host "⚠️ Script fix_imports_extended.ps1 no encontrado, se omite este paso."
+          }
 
     - name: Run tests
       run: pytest -q
