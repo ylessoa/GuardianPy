@@ -1,5 +1,11 @@
 from __future__ import annotations
+import logging
+import re
+from pathlib import Path
+from typing import Iterable
 
+from guardianpy.core.url_checker import analyze_url
+from guardianpy.core.models import ThreatFinding
 import logging
 import yara
 import hashlib
@@ -13,7 +19,48 @@ from core.models import ThreatFinding
 from core.signatures import SignatureDB, load_signatures
 from core.updater import active_signature_path
 #from services.resident import ResidentGuard
+logger = logging.getLogger("GuardianPy")
 
+class Scanner:
+    def __init__(self, api_key: str | None = None):
+        self.api_key = api_key
+
+    def scan_text_for_urls(self, text: str) -> Iterable[ThreatFinding]:
+        """
+        Escanea un texto en busca de URLs y las analiza con url_checker.
+        """
+        url_pattern = re.compile(r"https?://[^\s]+")
+        urls = url_pattern.findall(text)
+
+        findings = []
+        for url in urls:
+            suspicious, reason = analyze_url(url, api_key=self.api_key)
+            if suspicious:
+                logger.warning(f"⚠️ Enlace sospechoso detectado: {url} ({reason})")
+                findings.append(
+                    ThreatFinding(
+                        category="URL",
+                        target=url,
+                        severity="High",
+                        description=f"Enlace sospechoso: {reason}"
+                    )
+                )
+            else:
+                logger.info(f"✅ Enlace seguro: {url}")
+        return findings
+
+    def scan_file(self, file_path: Path) -> Iterable[ThreatFinding]:
+        """
+        Escanea un archivo de texto buscando enlaces sospechosos.
+        """
+        findings = []
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                content = f.read()
+                findings.extend(self.scan_text_for_urls(content))
+        except Exception as e:
+            logger.error(f"Error leyendo archivo {file_path}: {e}")
+        return findings
 def scan_file(path):
     rules = yara.compile(filepath="rules/eicar.yar")
     matches = rules.match(path)
