@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from .config import app_data_dir
+from config import app_data_dir
 
 
 def event_log_path() -> Path:
