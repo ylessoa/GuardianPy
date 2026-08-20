@@ -4,7 +4,7 @@ import re
 from pathlib import Path
 
 def check_residual_names():
-    """Busca en todo el código si quedó algún rastro de 'GuardianX' o 'guardianx'."""
+    """Busca en todo el código si quedó algún rastro de 'GuardianPy' o 'guardianpy'."""
     print("\n[1/4] Verificando rastros del nombre anterior...")
     old_names = ["guardianpy", "GuardianPy"]
     found_residuals = False
