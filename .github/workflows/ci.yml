@@ -1,4 +1,4 @@
- name: GuardianPy CI
+name: GuardianPy CI
 
 on:
   push:
