@@ -1,4 +1,6 @@
 GuardianPy Community
+![GuardianPy CI](https://github.com/ylessoa/GuardianPy/actions/workflows/ci.yml/badge.svg)
+
 GuardianPy Community es una suite defensiva antivirus / antimalware / antitroyanos en Python, diseñada con una experiencia visual inspirada en Avast, Bitdefender y Norton, pero con una arquitectura abierta y lista para GitHub.
 
 GuardianPy Community no incluye capacidades ofensivas. Su objetivo es detectar, contener y reducir superficie de ataque.
