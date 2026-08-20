@@ -1,5 +1,9 @@
 name: GuardianPy CI
-
+name: Fix imports (Linux/macOS)
+      if: runner.os != 'Windows'
+      run: |
+        chmod +x ./fix_imports_extended.sh
+        ./fix_imports_extended.sh
 on:
   push:
     branches: [ "main" ]
