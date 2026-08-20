@@ -6,7 +6,7 @@ from pathlib import Path
 def check_residual_names():
     """Busca en todo el código si quedó algún rastro de 'GuardianX' o 'guardianx'."""
     print("\n[1/4] Verificando rastros del nombre anterior...")
-    old_names = ["guardianx", "GuardianX"]
+    old_names = ["guardianpy", "GuardianPy"]
     found_residuals = False
     ignore_dirs = {'.git', '__pycache__', '.venv', 'venv', 'build', 'dist', '.eggs'}
     
