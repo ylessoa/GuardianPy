@@ -1,4 +1,4 @@
-# verify_guardianpy.py
+# verify_core.py
 import os
 import re
 from pathlib import Path
@@ -54,7 +54,7 @@ def check_config():
     """Verifica que la configuración tenga el nuevo nombre de la app."""
     print("\n[3/4] Verificando configuración base...")
     try:
-        from GuardianPy.core.config import APP_NAME, AppConfig
+        from core.config import APP_NAME, AppConfig
         if APP_NAME == "GuardianPy":
             print("  ✅ APP_NAME configurado correctamente a 'GuardianPy'.")
         else:
@@ -82,7 +82,7 @@ def check_packaging():
     else:
         print("  ❌ El nombre en pyproject.toml no es 'GuardianPy'.")
         
-    if 'guardianpy = "guardianpy.cli:main"' in content and 'GuardianPy-gui = "guardianpy.app:main"' in content:
+    if 'guardianpy = "core.cli:main"' in content and 'GuardianPy-gui = "core.app:main"' in content:
         print("  ✅ Puntos de entrada (entry_points) de consola y GUI correctos.")
     else:
         print("  ❌ Los puntos de entrada (comandos guardianpy/guardianpy-gui) no están configurados.")

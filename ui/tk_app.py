@@ -117,7 +117,7 @@ class GuardianPyGUI:
 
     def _run_update(self):
         try:
-            from guardianx.core.updater import update_signatures
+            from core.updater import update_signatures
             result = update_signatures()
             self.add_log(f"[+] Firmas actualizadas: v{result['version']} ({result['rules']} reglas, {result['hashes']} hashes)")
         except Exception as e:

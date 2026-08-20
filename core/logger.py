@@ -3,7 +3,7 @@ import logging.handlers
 from .config import app_data_dir
 
 def setup_logging(verbose: bool = False, log_to_file: bool = True):
-    """Configura el sistema de logging para GuardianPy."""
+    """Configura el sistema de logging para core."""
     level = logging.DEBUG if verbose else logging.INFO
     logger = logging.getLogger("guardianpy")
     logger.setLevel(level)
@@ -23,7 +23,7 @@ def setup_logging(verbose: bool = False, log_to_file: bool = True):
     
     # Archivo
     if log_to_file:
-        log_file = app_data_dir() / "guardianpy.log"
+        log_file = app_data_dir() / "core.log"
         fh = logging.handlers.RotatingFileHandler(
             log_file,
             maxBytes=1_000_000,

@@ -1,7 +1,7 @@
 from pathlib import Path
-from guardianx.core.scanner import scan_paths
-from guardianx.core.signatures import load_signatures
-from guardianx.core.quarantine import QuarantineManager
+from core.scanner import scan_paths
+from core.signatures import load_signatures
+from core.quarantine import QuarantineManager
 from core.scanner import scan_file
 import tempfile
 

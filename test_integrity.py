@@ -1,6 +1,6 @@
 # test_integrity.py
 import logging
-from guardianx.core.logger import setup_logging
+from core.logger import setup_logging
 
 def test_all_modules():
     log = setup_logging(log_to_file=False)
@@ -8,28 +8,28 @@ def test_all_modules():
 
     try:
         # 1. Probar Configuración
-        from GuardianPy.core.config import load_config
+        from core.config import load_config
         cfg = load_config()
         log.info("✅ Módulo 'config' OK")
 
         # 2. Probar PE Analyzer (Requiere 'pefile' instalado)
-        from GuardianPy.core.pe_analyzer import analyze_pe_file
+        from core.pe_analyzer import analyze_pe_file
         log.info("✅ Módulo 'pe_analyzer' OK")
 
         # 3. Probar Process Monitor (Requiere 'psutil')
-        from GuardianPy.core.process_monitor import detect_memory_misuse, detect_exploit_behavior, terminate_process
+        from core.process_monitor import detect_memory_misuse, detect_exploit_behavior, terminate_process
         log.info("✅ Módulo 'process_monitor' OK")
 
         # 4. Probar Realtime Monitor (Requiere 'watchdog')
-        from guardianx.core.realtime_monitor import RealtimeMonitor, RealtimeFileHandler
+        from core.realtime_monitor import RealtimeMonitor, RealtimeFileHandler
         log.info("✅ Módulo 'realtime_monitor' OK")
 
         # 5. Probar UI (Requiere 'tkinter', 'pystray', 'Pillow')
-        from guardianx.ui.tk_app import GuardianXGUI, QueueLogHandler
+        from core.ui.tk_app import GuardianXGUI, QueueLogHandler
         log.info("✅ Módulo 'ui.tk_app' OK")
 
         # 6. Probar Resident
-        from GuardianPy.services.resident import ResidentGuard
+        from core.services.resident import ResidentGuard
         log.info("✅ Módulo 'services.resident' OK")
 
         log.info("🎉 ¡Todas las importaciones están correctas! El código está íntegro.")
