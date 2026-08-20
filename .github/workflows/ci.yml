@@ -1,9 +1,5 @@
 name: GuardianPy CI
-name: Fix imports (Linux/macOS)
-      if: runner.os != 'Windows'
-      run: |
-        chmod +x ./fix_imports_extended.sh
-        ./fix_imports_extended.sh
+
 on:
   push:
     branches: [ "main" ]
@@ -31,8 +27,17 @@ jobs:
         python -m pip install --upgrade pip setuptools wheel
         pip install -r requirements.txt
 
-    - name: Fix imports
-      run: ./fix_imports_extended.sh
+    # Bloque condicional para Windows
+    - name: Fix imports (Windows)
+      if: runner.os == 'Windows'
+      run: powershell.exe -ExecutionPolicy Bypass -File .\fix_imports_extended.ps1
+
+    # Bloque condicional para Linux/macOS
+    - name: Fix imports (Linux/macOS)
+      if: runner.os != 'Windows'
+      run: |
+        chmod +x ./fix_imports_extended.sh
+        ./fix_imports_extended.sh
 
     - name: Check for old imports
       shell: bash
@@ -50,3 +55,4 @@ jobs:
 
     - name: Run tests
       run: pytest -q
+
