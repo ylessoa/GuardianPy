@@ -8,8 +8,8 @@ import re
 from pathlib import Path
 
 # CONFIGURACIÓN
-OLD_NAME_LOWER = "guardianx"
-OLD_NAME_MIXED = "GuardianX"
+OLD_NAME_LOWER = "guardianpy"
+OLD_NAME_MIXED = "GuardianPy"
 NEW_NAME_LOWER = "Guardianpy"      # <-- Cambia aquí tu nuevo nombre
 NEW_NAME_MIXED = "GuardianPy"     # <-- Cambia aquí tu nuevo nombre  
 
