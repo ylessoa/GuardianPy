@@ -1,3 +1,4 @@
+#detectar consultas SQL intrusivas
 Contribuir a GuardianPy Community
 Gracias por ayudar a mejorar GuardianPy. Este proyecto acepta solo capacidades defensivas.
 
