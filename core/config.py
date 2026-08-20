@@ -6,7 +6,7 @@ from pathlib import Path
 
 APP_NAME = "GuardianPy"
 APP_EDITION = "Community"
-APP_ID = "guardianx-community"
+APP_ID = "GuardianPy-community"
 DEFAULT_UPDATE_URL = "https://raw.githubusercontent.com/ylessoa/GuardianPy/main/signatures/signatures.json"
 # core/config.py (Dentro de la clase AppConfig)
 
