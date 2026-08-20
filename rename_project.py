@@ -40,7 +40,7 @@ def replace_in_file(file_path: Path) -> int:
         
         # Reemplazar versiones mixtas (GuardianX -> GuardianPy)
         content = content.replace(OLD_NAME_MIXED, NEW_NAME_MIXED)
-        # Reemplazar versiones minúsculas (guardianx -> guardianpy)
+        # Reemplazar versiones minúsculas 
         content = content.replace(OLD_NAME_LOWER, NEW_NAME_LOWER)
         
         if content != original_content:
