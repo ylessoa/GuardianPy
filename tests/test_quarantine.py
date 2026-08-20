@@ -1,6 +1,6 @@
 from pathlib import Path
-from guardianx.core.quarantine import QuarantineManager
-from guardianx.core.models import ThreatFinding
+from core.quarantine import QuarantineManager
+from core.models import ThreatFinding
 
 def test_restore_file(tmp_path: Path):
     file = tmp_path / "malware.txt"
