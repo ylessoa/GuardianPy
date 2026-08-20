@@ -9,7 +9,7 @@ Branding propio y logo SVG.
 Escaneo por firmas SHA-256 y heurísticas locales.
 Cuarentena / encapsulado de archivos sospechosos.
 Guardián residente en segundo plano mediante ciclo de protección.
-Registro de eventos en ~/.guardianx/events.jsonl.
+Registro de eventos en ~/.guardianpy/events.jsonl.
 Actualización de firmas por HTTPS.
 Auditoría de procesos por memoria, CPU y conexiones.
 Auditoría de puertos abiertos riesgosos.
@@ -78,7 +78,7 @@ Windows: crear .exe
 En Windows:
 
 powershell 
-cd guardianx
+cd guardianpy
 packaging\windows\build_windows.ps1
 Salida:
 
@@ -89,7 +89,7 @@ Instala Inno Setup.
 Genera primero el EXE portable.
 Compila:
 text 
-packaging\windows\guardianx_installer.iss
+packaging\windows\guardianpy_installer.iss
 Salida:
 
 text 
@@ -114,7 +114,7 @@ https://raw.githubusercontent.com/ylessoa/GuardianPy/main/signatures/signatures.
 Cambia la URL con:
 
 bash 
-guardianx update --url https://tu-servidor/signatures.json
+guardianpy update --url https://tu-servidor/signatures.json
 Arquitectura
 text 
 GuardianPy/

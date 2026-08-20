@@ -5,8 +5,8 @@ py -m venv .venv
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 pip install -e .
-Write-Host "GuardianX instalado. Ejecuta:"
-Write-Host "  guardianx-gui"
-Write-Host "  guardianx full $env:USERPROFILE\Downloads"
-Write-Host "  guardianx resident --once"
+Write-Host "GuardianPy instalado. Ejecuta:"
+Write-Host "  guardianpy-gui"
+Write-Host "  guardianpy full $env:USERPROFILE\Downloads"
+Write-Host "  guardianpy resident --once"
 Write-Host "Para protección residente al iniciar sesión: packaging\windows\install_resident_task.ps1"

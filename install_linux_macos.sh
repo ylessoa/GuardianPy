@@ -6,8 +6,8 @@ python3 -m venv .venv
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 pip install -e .
-echo "GuardianX instalado. Ejecuta:"
-echo "  guardianx-gui"
-echo "  guardianx full ~/Downloads"
-echo "  guardianx resident --once"
-echo "Para modo residente continuo: nohup guardianx resident >/tmp/guardianx.log 2>&1 &"
+echo "GuardianPy instalado. Ejecuta:"
+echo "  guardianpy-gui"
+echo "  guardianpy full ~/Downloads"
+echo "  guardianpy resident --once"
+echo "Para modo residente continuo: nohup guardianpy resident >/tmp/guardianpy.log 2>&1 &"
