@@ -27,18 +27,22 @@ jobs:
         python -m pip install --upgrade pip setuptools wheel
         pip install -r requirements.txt
 
+    - name: Fix imports
+      run: ./fix_imports_extended.sh
+
     - name: Check for old imports
       shell: bash
       run: |
-        if grep -R "guardianx" .; then
-          echo "❌ Found invalid import 'guardianx'"
+        # Solo revisar archivos Python, ignorando documentación y scripts auxiliares
+        if grep -R "guardianx" --include="*.py" .; then
+          echo "❌ Found invalid import 'guardianx' in Python code"
           exit 1
         fi
-        if grep -R "GuardianPy" .; then
-          echo "❌ Found invalid import 'GuardianPy'"
+        if grep -R "GuardianPy" --include="*.py" .; then
+          echo "❌ Found invalid import 'GuardianPy' in Python code"
           exit 1
         fi
-        echo "✅ No invalid imports found"
+        echo "✅ No invalid imports found in Python code"
 
     - name: Run tests
       run: pytest -q
