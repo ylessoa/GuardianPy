@@ -4,11 +4,10 @@ import pytest
 import logging
 from pathlib import Path
 from guardianpy.core.realtime_monitor import RealtimeFileHandler
-<<<<<<< HEAD
+
 from guardianpy.core.signatures import SignatureDB
 from guardianpy.core.quarantine import QuarantineManager
 
-=======
 from guardianpy.core.quarantine import QuarantineManager
 
 class FakeSignatureDB:
