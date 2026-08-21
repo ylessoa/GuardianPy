@@ -12,5 +12,5 @@ Crear release descargable
 En Windows:
 
 powershell 
-packaging\windows\build_windows.ps1
+packaging\windows\bguardianpy.guardianpy.uild_windows.ps1
 Luego adjunta dist\GuardianPyCommunity.exe y, si usas Inno Setup, dist-installer\GuardianPyCommunitySetup.exe.

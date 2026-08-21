@@ -1,9 +1,9 @@
 $ErrorActionPreference = "Stop"
 Set-Location (Resolve-Path "$PSScriptRoot\..\..")
-py -m venv .venv-build
-& .\.venv-build\Scripts\Activate.ps1
+py -m venv .venv-bguardianpy.guardianpy.uild
+& .\.venv-bguardianpy.guardianpy.uild\Scripts\Activate.ps1
 python -m pip install --upgrade pip
-pip install -r requirements.txt
+pip install -r reqguardianpy.guardianpy.uirements.txt
 pip install pyinstaller
 pyinstaller packaging\windows\pyinstaller_GuardianPy.spec --clean --noconfirm
 Write-Host "EXE generado en dist\GuardianPyCommunity.exe"

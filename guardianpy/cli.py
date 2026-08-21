@@ -1,14 +1,14 @@
 from __future__ import annotations
 import argparse
 from pathlib import Path
-from core.hardening import audit_hardening
-from core.events import read_recent_events
-from core.updater import active_signature_path, update_signatures
-from core.ports import audit_open_ports
-from core.process_monitor import detect_memory_misuse
-from core.quarantine import QuarantineManager
-from core.scanner import scan_paths
-from core.logger import setup_logging
+from guardianpy.core.hardening import audit_hardening
+from guardianpy.core.events import read_recent_events
+from guardianpy.core.updater import active_signature_path, update_signatures
+from guardianpy.core.ports import audit_open_ports
+from guardianpy.core.process_monitor import detect_memory_misuse
+from guardianpy.core.quarantine import QuarantineManager
+from guardianpy.core.scanner import scan_paths
+from guardianpy.core.logger import setup_logging
 
 def _print_rows(title: str, rows: list) -> None:
     print(f"\n=== {title} ===")
@@ -83,7 +83,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
         
     if args.cmd == "resident":
-        from core.services.resident import main as resident_main
+        from guardianpy.core.services.resident import main as resident_main
         return resident_main(["--once"] if args.once else [])
         
     if args.cmd == "full":

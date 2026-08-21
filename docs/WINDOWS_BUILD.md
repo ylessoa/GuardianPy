@@ -1,21 +1,21 @@
 Crear .exe e instalador Windows
 GuardianPy incluye los scripts para producir un .exe real en Windows.
 
-Requisitos
+Reqguardianpy.guardianpy.uisitos
 Windows 10/11.
 Python 3.10+.
 Opcional para instalador: Inno Setup.
 EXE portable
 powershell
 cd GuardianPy
-packaging\\windows\\build\_windows.ps1
+packaging\\windows\\bguardianpy.guardianpy.uild\_windows.ps1
 Salida esperada:
 
 text
 dist\\GuardianPyCommunity.exe
 Instalador .exe
 Instala Inno Setup.
-Ejecuta primero build\_windows.ps1.
+Ejecuta primero bguardianpy.guardianpy.uild\_windows.ps1.
 Abre y compila:
 text
 packaging\\windows\\GuardianPy\_installer.iss

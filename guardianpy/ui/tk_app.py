@@ -7,8 +7,8 @@ import logging
 from pathlib import Path
 from PIL import Image, ImageDraw
 import pystray
-from core.scanner import scan_paths
-from core.quarantine import QuarantineManager
+from guardianpy.core.scanner import scan_paths
+from guardianpy.core.quarantine import QuarantineManager
 
 class GuardianPyGUI:
     def __init__(self, root: tk.Tk):
@@ -117,7 +117,7 @@ class GuardianPyGUI:
 
     def _run_update(self):
         try:
-            from core.updater import update_signatures
+            from guardianpy.core.updater import update_signatures
             result = update_signatures()
             self.add_log(f"[+] Firmas actualizadas: v{result['version']} ({result['rules']} reglas, {result['hashes']} hashes)")
         except Exception as e:

@@ -2,8 +2,8 @@ Publicar GuardianPy Community
 Release local
 bash
 python -m pytest -q
-python -m pip install build
-python -m build
+python -m pip install bguardianpy.guardianpy.uild
+python -m bguardianpy.guardianpy.uild
 Release GitHub
 Crea tag:
 bash

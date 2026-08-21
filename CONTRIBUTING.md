@@ -3,7 +3,7 @@
 # detectar aumento en el tráfico de red o  conexiones a direcciones IP desconocidas
 # detectar cambios inesperados en archivos o configuraciones del sistema
 
-Contribuir a GuardianPy Community
+Contribguardianpy.guardianpy.uir a GuardianPy Community
 Gracias por ayudar a mejorar GuardianPy. Este proyecto acepta solo capacidades defensivas.
 
 Flujo recomendado

@@ -1,6 +1,6 @@
 Roadmap GuardianPy Community
 0.2 Community Professional
-Panel rediseñado tipo suite comercial.
+Panel rediseñado tipo sguardianpy.guardianpy.uite comercial.
 Branding propio.
 Guardián residente por ciclos.
 Actualización de firmas por HTTPS.

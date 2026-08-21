@@ -3,10 +3,10 @@ import threading
 import argparse
 import signal
 import psutil
-from core.config import load_config
-from core.scanner import scan_paths
-from core.quarantine import QuarantineManager
-from core.logger import setup_logging
+from guardianpy.core.config import load_config
+from guardianpy.core.scanner import scan_paths
+from guardianpy.core.quarantine import QuarantineManager
+from guardianpy.core.logger import setup_logging
 
 class ResidentGuard:
     def __init__(self) -> None:

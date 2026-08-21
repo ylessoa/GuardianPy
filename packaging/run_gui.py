@@ -1,4 +1,4 @@
-from core.ui.tk_app import main
+from guardianpy.core.ui.tk_app import main
 
 if __name__ == "__main__":
     main()

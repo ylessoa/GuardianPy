@@ -7,8 +7,8 @@ Set-Location "$env:USERPROFILE\GuardianPy"
 # 2. Buscar todos los archivos .py y aplicar reemplazos
 Get-ChildItem -Recurse -Include *.py | ForEach-Object {
     (Get-Content $_.FullName) `
-    -replace 'guardianpy\.', 'core.' `
-    -replace 'GuardianPy\.', 'core.' |
+    -replace 'guardianpy\.', 'guardianpy.guardianpy.core.' `
+    -replace 'GuardianPy\.', 'guardianpy.guardianpy.core.' |
     Set-Content $_.FullName
 }
 

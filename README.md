@@ -1,12 +1,12 @@
 GuardianPy Community
 ![GuardianPy CI](https://github.com/ylessoa/GuardianPy/actions/workflows/ci.yml/badge.svg)
 
-GuardianPy Community es una suite defensiva antivirus / antimalware / antitroyanos en Python, diseñada con una experiencia visual inspirada en Avast, Bitdefender y Norton, pero con una arquitectura abierta y lista para GitHub.
+GuardianPy Community es una sguardianpy.guardianpy.uite defensiva antivirus / antimalware / antitroyanos en Python, diseñada con una experiencia visual inspirada en Avast, Bitdefender y Norton, pero con una arqguardianpy.guardianpy.uitectura abierta y lista para GitHub.
 
 GuardianPy Community no incluye capacidades ofensivas. Su objetivo es detectar, contener y reducir superficie de ataque.
 
 Novedades versión 0.2 profesional
-Panel gráfico rediseñado tipo suite comercial.
+Panel gráfico rediseñado tipo sguardianpy.guardianpy.uite comercial.
 Branding propio y logo SVG.
 Escaneo por firmas SHA-256 y heurísticas locales.
 Cuarentena / encapsulado de archivos sospechosos.
@@ -20,7 +20,7 @@ Scripts para generar .exe Windows con PyInstaller.
 Script de instalador Windows con Inno Setup.
 Kit Community listo para GitHub: MIT License, CI, SECURITY, CONTRIBUTING y documentación.
 Captura conceptual
-La UI incluye:
+La guardianpy.guardianpy.ui incluye:
 
 barra lateral estilo centro de seguridad,
 tarjetas de estado,
@@ -35,16 +35,16 @@ bash
 cd GuardianPy
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\\Scripts\\Activate.ps1
-pip install -r requirements.txt
+pip install -r reqguardianpy.guardianpy.uirements.txt
 pip install -e .
 Ejecutar panel gráfico
 bash 
-GuardianPy-gui
+GuardianPy-gguardianpy.guardianpy.ui
 Alternativas:
 
 bash 
 python -m GuardianPy.app
-python run_gui.py
+python run_gguardianpy.guardianpy.ui.py
 Uso CLI
 bash 
 # Escanear una carpeta
@@ -81,7 +81,7 @@ En Windows:
 
 powershell 
 cd guardianpy
-packaging\windows\build_windows.ps1
+packaging\windows\bguardianpy.guardianpy.uild_windows.ps1
 Salida:
 
 text 
@@ -96,7 +96,7 @@ Salida:
 
 text 
 dist-installer\GuardianPyCommunitySetup.exe
-Más detalles en docs/WINDOWS_BUILD.md.
+Más detalles en docs/WINDOWS_Bguardianpy.guardianpy.uiLD.md.
 
 Servicio residente Windows
 GuardianPy Community puede instalarse como tarea programada al inicio de sesión:
@@ -117,19 +117,19 @@ Cambia la URL con:
 
 bash 
 guardianpy update --url https://tu-servidor/signatures.json
-Arquitectura
+Arqguardianpy.guardianpy.uitectura
 text 
 GuardianPy/
-  GuardianPy/core/scanner.py          # Motor de escaneo
-  GuardianPy/core/signatures.py       # Carga de firmas
-  GuardianPy/core/updater.py          # Actualización de firmas
-  GuardianPy/core/quarantine.py       # Cuarentena
-  GuardianPy/core/process_monitor.py  # Procesos: memoria/CPU/red
-  GuardianPy/core/ports.py            # Puertos riesgosos
-  GuardianPy/core/hardening.py        # Hardening
-  GuardianPy/core/events.py           # Eventos del residente
+  GuardianPy/guardianpy.guardianpy.core/scanner.py          # Motor de escaneo
+  GuardianPy/guardianpy.guardianpy.core/signatures.py       # Carga de firmas
+  GuardianPy/guardianpy.guardianpy.core/updater.py          # Actualización de firmas
+  GuardianPy/guardianpy.guardianpy.core/quarantine.py       # Cuarentena
+  GuardianPy/guardianpy.guardianpy.core/process_monitor.py  # Procesos: memoria/CPU/red
+  GuardianPy/guardianpy.guardianpy.core/ports.py            # Puertos riesgosos
+  GuardianPy/guardianpy.guardianpy.core/hardening.py        # Hardening
+  GuardianPy/guardianpy.guardianpy.core/events.py           # Eventos del residente
   GuardianPy/service/resident.py      # Guardián residente
-  GuardianPy/ui/tk_app.py             # Panel profesional
+  GuardianPy/guardianpy.guardianpy.ui/tk_app.py             # Panel profesional
   packaging/windows/                 # EXE e instalador
 Publicar en GitHub
 bash 
