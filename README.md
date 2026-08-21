@@ -1,6 +1,7 @@
 final:
 
-🛡️ GuardianPy Seguridad en tiempo real
+🛡️ GuardianPy - Seguridad en tiempo real
+
 GuardianPy protege tu equipo contra amenazas modernas, detecta minería no autorizada y mantiene tu entorno de trabajo limpio y confiable.
 
 🎯 Utilidades principales
