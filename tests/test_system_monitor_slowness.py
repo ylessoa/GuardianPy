@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # tests/test_system_monitor_slowness.py
 
 import pytest
@@ -31,7 +31,7 @@ def test_detect_system_slowness_triggers_log_security_event(monkeypatch):
     assert result is True
     assert called.get("source") == "system_monitor"
     assert "fake_high_cpu" in called.get("description", "")
-=======
+
 # tests/test_system_monitor_slowness.py
 
 import pytest
@@ -64,4 +64,3 @@ def test_detect_system_slowness_triggers_log_security_event(monkeypatch):
     assert result is True
     assert called.get("source") == "system_monitor"
     assert "fake_high_cpu" in called.get("description", "")
->>>>>>> 90c57a03bbd95413fb8d4d2353ea5a44219a202f
