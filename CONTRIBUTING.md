@@ -1,7 +1,3 @@
-#detectar consultas SQL intrusivas
-# detectar rendimiento inusualmente lento del sistema
-# detectar aumento en el tráfico de red o  conexiones a direcciones IP desconocidas
-# detectar cambios inesperados en archivos o configuraciones del sistema
 
 Contribguardianpy.guardianpy.uir a GuardianPy Community
 Gracias por ayudar a mejorar GuardianPy. Este proyecto acepta solo capacidades defensivas.
