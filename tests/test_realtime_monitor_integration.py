@@ -1,7 +1,10 @@
+# tests/test_realtime_monitor_integration.py
+
 import time
 import pytest
 from guardianpy.core import events
 from guardianpy.core.realtime_monitor import RealtimeMonitor
+import guardianpy.core.system_monitor as system_monitor
 
 def test_realtime_monitor_integration_with_detector(tmp_path, monkeypatch):
     # Redirigimos el log de eventos a un archivo temporal
@@ -16,10 +19,8 @@ def test_realtime_monitor_integration_with_detector(tmp_path, monkeypatch):
             "reason": "Exceso de conexiones: 200; Conexiones a IPs desconocidas: 203.0.113.99"
         }]
 
-    monkeypatch.setattr(
-        "guardianpy.core.system_monitor.detect_network_anomalies",
-        fake_detector
-    )
+    # Monkeypatch sobre el módulo importado
+    monkeypatch.setattr(system_monitor, "detect_network_anomalies", fake_detector)
 
     # Usamos un intervalo corto para el test
     monitor = RealtimeMonitor(interval=0.5)
