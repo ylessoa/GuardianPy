@@ -34,4 +34,5 @@ Replace-TextInFiles 'guardianpy' 'guardianpy' *.ps1
 Replace-TextInFiles 'guardianpy' 'guardianpy' *.sh
 Replace-TextInFiles 'guardianpy' 'guardianpy' *.sh
 
-Write-Host "✅ Todas las referencias a guardianpy han sido reemplazadas por guardianpy".
+Write-Host "✅ Todas las referencias a guardianx han sido reemplazadas por guardianpy"
+
