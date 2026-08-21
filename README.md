@@ -1,69 +1,62 @@
-final:
+# 🛡️ GuardianPy – Seguridad en tiempo real
 
-🛡️ GuardianPy - Seguridad en tiempo real
+> *“Tu guardián digital contra amenazas invisibles.”*
 
-GuardianPy protege tu equipo contra amenazas modernas, detecta minería no autorizada y mantiene tu entorno de trabajo limpio y confiable.
+GuardianPy protege tu equipo contra minería no autorizada, ransomware, conexiones sospechosas y conflictos de código. Diseñado para usuarios que buscan seguridad y estabilidad sin complicaciones.
 
-🎯 Utilidades principales
-🔍 Monitoreo en tiempo real  
-Vigila procesos, conexiones y recursos del sistema para detectar comportamientos anómalos.
+---
 
-⚡ Detección de minería no autorizada (cryptomining)  
-Identifica procesos que consumen CPU/GPU de forma sospechosa y conexiones a pools de minería.
-👉 Evita que tu equipo sea usado para minería sin tu consentimiento.
+## 📊 Dashboard visual
 
-🛑 Bloqueo de ransomware y malware  
-Reconoce patrones de cifrado masivo y neutraliza procesos culpables antes de que dañen tus archivos.
+![GuardianPy Dashboard](dashboard.png)
 
-🌐 Detección de conexiones sospechosas  
-Analiza URLs y dominios para validar si son legítimos o potencialmente peligrosos.
+Este panel muestra:
+- **System Monitoring**: CPU y GPU en tiempo real, actividad de red.  
+- **Threat Alerts**: alertas de minería, ransomware y conexiones sospechosas.  
+- **Repo Sync Status**: estado de conflictos y sincronización con el remoto.  
 
-📂 Protección de archivos  
-Aísla automáticamente archivos sospechosos en cuarentena para evitar su ejecución.
+---
 
-⚙️ Verificación de conflictos en proyectos  
-Incluye un detector de conflictos de código que te avisa si tu repositorio tiene merges sin resolver.
+## 🎯 Utilidades principales
 
-🔄 Sincronización segura con repositorios remotos  
-Con el flujo safe_pull, puedes actualizar tu proyecto sin preocuparte por conflictos: si aparecen, se descartan y tu copia queda alineada con el remoto.
+| 🔧 Función | Descripción breve |
+|------------|------------------|
+| ⚡ Detección de minería no autorizada | Bloquea procesos que usan tus recursos sin permiso. |
+| 🛑 Bloqueo de ransomware | Detiene cifrados masivos antes de que dañen tus archivos. |
+| 🌐 Conexiones sospechosas | Analiza URLs y bloquea dominios peligrosos. |
+| 📂 Cuarentena de archivos | Aísla archivos maliciosos automáticamente. |
+| 🔄 Sincronización segura | Actualiza tu proyecto sin conflictos. |
+| ⚙️ Verificación de conflictos | Detecta merges sin resolver en tu repositorio. |
 
-👁️ Ejemplos visuales de escenarios reales
+---
 
-🚨 Alerta de minería no autorizada
+## 👁️ Casos de uso reales
 
+### 🧩 Descargas un archivo sospechoso
+```text
 [GuardianPy Alert]
+⚠️ Archivo sospechoso detectado: invoice_2026.pdf
+Tipo: PDF con macros ocultas
+Acción: Archivo movido a cuarentena
 
+###🔥 Tu sistema se pone lento
+[GuardianPy Alert]
 ⚠️ Proceso sospechoso detectado: xmrig.exe
-
 Uso de CPU: 95%
-
-Conexión a pool: mining.example.com:3333
-
 Acción: Proceso bloqueado y registrado en log.
 
+###🌐 Conexión peligrosa
+[GuardianPy Alert]
+🚫 Conexión bloqueada: phishing-login.example.net
+Motivo: Dominio malicioso
+Acción: Conexión cerrada y URL marcada como insegura.
 
+###⚙️ Sincronización limpia
 [GuardianPy Git Helper]
-
-✔️ Conflictos detectados en tests/test_guardianpy_suite.py
-
 ✔️ Conflictos descartados automáticamente
-
 ✔️ Rama local sincronizada con origin/main
 
-
-
-🧩 ¿Para qué te sirve?
-
-Mantener tu equipo protegido contra amenazas invisibles.
-
-Evitar que procesos no autorizados consuman recursos o roben información.
-
-Trabajar en proyectos sin interrupciones por conflictos de código.
-
-Garantizar que tu entorno esté siempre sincronizado y libre de errores.
-
-Tener control total sobre la seguridad y estabilidad de tu sistema.
-
+###🚀 Inicio rápido
 git clone https://github.com/tuusuario/GuardianPy.git
 cd GuardianPy
 python -m venv .venv
@@ -71,7 +64,12 @@ source .venv/bin/activate   # Linux/Mac
 .venv\Scripts\activate      # Windows
 pip install -r requirements.txt
 
+###Ejecuta el servicio residente:
+python -m guardianpy.services.resident
+
+
 python -m guardianpy.services.resident
 
 ✅ Estado actual
 GuardianPy combina seguridad informática avanzada (detección de minería, ransomware y conexiones sospechosas) con herramientas de productividad (sincronización limpia y verificación de conflictos), para que trabajes y uses tu equipo sin preocupaciones.
+
