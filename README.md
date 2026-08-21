@@ -43,8 +43,11 @@ Acción: Proceso bloqueado y registrado en log.
 
 
 [GuardianPy Git Helper]
+
 ✔️ Conflictos detectados en tests/test_guardianpy_suite.py
+
 ✔️ Conflictos descartados automáticamente
+
 ✔️ Rama local sincronizada con origin/main
 
 🧩 ¿Para qué te sirve?
