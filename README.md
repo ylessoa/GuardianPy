@@ -1,34 +1,32 @@
-# GuardianPy
+🛡️ GuardianPy
+GuardianPy es tu compañero de seguridad en Windows, diseñado para proteger tu sistema en tiempo real y ofrecerte herramientas prácticas para mantener tu entorno limpio y confiable.
 
-GuardianPy es un sistema de monitoreo y detección de amenazas en tiempo real, diseñado para identificar comportamientos sospechosos, conflictos de código y anomalías en entornos de desarrollo.
+🎯 ¿Qué utilidades encontrarás?
+Monitoreo en tiempo real  
+GuardianPy vigila procesos, puertos y conexiones para detectar comportamientos sospechosos antes de que afecten tu equipo.
 
----
+Detección de amenazas  
+Escanea archivos y rutas específicas para identificar malware, minería de criptomonedas y conexiones maliciosas.
 
-## 🚀 Funcionalidades principales
+Protección de archivos  
+Aísla automáticamente cualquier archivo sospechoso en cuarentena, evitando su ejecución.
 
-- **Detección de conflictos de merge**  
-  Script `detect_conflicts.sh` que analiza el repositorio y marca líneas con `<<<<<<<`, `=======`, `>>>>>>>` para resolver conflictos rápidamente.
+Verificación de conflictos en tu proyecto  
+Incluye un detector de conflictos de código (detect_conflicts) que te avisa si tu repositorio tiene problemas de merge sin resolver.
 
-- **Flujo seguro de sincronización (`safe_pull.sh`)**  
-  Automatiza la actualización de la rama `main`:
-  - Ejecuta `git pull --rebase --autostash` para evitar merges innecesarios.
-  - Si se detectan conflictos, descarta cambios locales y sincroniza con el remoto (`git reset --hard origin/main`).
-  - Verifica automáticamente que no queden marcas de conflicto en `guardianpy/` y `tests/`.
+Sincronización segura con el repositorio remoto  
+Con el flujo safe_pull, puedes actualizar tu proyecto sin preocuparte por conflictos: si aparecen, se descartan y tu copia queda alineada con el remoto.
 
-- **Monitoreo en tiempo real**  
-  Integración con detectores de minería de criptomonedas, conexiones sospechosas y slowness del sistema.
+Interfaz gráfica y CLI  
+Elige entre una interfaz visual sencilla o comandos avanzados según tu preferencia.
 
-- **Suite de pruebas automatizadas**  
-  Conjunto de tests unitarios e integrados para validar cada módulo del sistema.
+🧩 ¿Para qué te sirve?
+Mantener tu sistema protegido contra amenazas invisibles.
 
----
+Evitar que procesos no autorizados consuman recursos o roben información.
 
-## 🛠️ Instalación
+Trabajar en proyectos sin interrupciones por conflictos de código.
 
-```bash
-git clone https://github.com/tuusuario/GuardianPy.git
-cd GuardianPy
-python -m venv .venv
-source .venv/bin/activate   # Linux/Mac
-.venv\Scripts\activate      # Windows
-pip install -r requirements.txt
+Garantizar que tu entorno de desarrollo esté siempre sincronizado y libre de errores.
+
+Tener control total sobre la seguridad y estabilidad de tu equipo.
