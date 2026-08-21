@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # tests/test_crypto_mining_detector.py
 
 import pytest
@@ -42,7 +42,7 @@ def test_crypto_mining_detector_marks_xmrig_as_suspicious(monkeypatch, caplog):
     assert suspicious, "El detector no marcó el proceso como sospechoso"
     assert suspicious[0]["name"] == "xmrig"
     assert any("minería no autorizada" in msg.lower() for msg in caplog.messages)
-=======
+
 # tests/test_crypto_mining_detector.py
 
 import pytest
@@ -86,4 +86,3 @@ def test_crypto_mining_detector_marks_xmrig_as_suspicious(monkeypatch, caplog):
     assert suspicious, "El detector no marcó el proceso como sospechoso"
     assert suspicious[0]["name"] == "xmrig"
     assert any("minería no autorizada" in msg.lower() for msg in caplog.messages)
->>>>>>> 90c57a03bbd95413fb8d4d2353ea5a44219a202f
