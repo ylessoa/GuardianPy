@@ -4,9 +4,22 @@ import pytest
 import logging
 from pathlib import Path
 from guardianpy.core.realtime_monitor import RealtimeFileHandler
+<<<<<<< HEAD
 from guardianpy.core.signatures import SignatureDB
 from guardianpy.core.quarantine import QuarantineManager
 
+=======
+from guardianpy.core.quarantine import QuarantineManager
+
+class FakeSignatureDB:
+    """Stub de SignatureDB para pruebas (no requiere parámetros)."""
+    def __init__(self):
+        self.version = "test"
+        self.hashes_sha256 = {}
+        self.rules = []
+        self.risky_ports = []
+
+>>>>>>> 85cfac7 (Fix: move services inside guardianpy/)
 def test_mass_modification_triggers_alert(tmp_path, caplog):
     """
     Test de integración:
@@ -18,9 +31,20 @@ def test_mass_modification_triggers_alert(tmp_path, caplog):
     caplog.set_level(logging.CRITICAL)
 
     # Crear instancias simuladas de dependencias
+<<<<<<< HEAD
     signatures = SignatureDB()
     quarantine = QuarantineManager(tmp_path)
     handler = RealtimeFileHandler(signatures, quarantine, auto_quarantine=False, logger=logging.getLogger("GuardianPy"))
+=======
+    signatures = FakeSignatureDB()
+    quarantine = QuarantineManager(tmp_path)
+    handler = RealtimeFileHandler(
+        signatures,
+        quarantine,
+        auto_quarantine=False,
+        logger=logging.getLogger("GuardianPy")
+    )
+>>>>>>> 85cfac7 (Fix: move services inside guardianpy/)
 
     # Simular modificaciones masivas
     for i in range(60):  # más que el threshold=50
