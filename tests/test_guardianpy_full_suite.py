@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # tests/test_guardianpy_full_suite.py
 
 import pytest
@@ -128,7 +128,7 @@ def test_realtime_monitor_triggers_all_detectors(monkeypatch):
     assert "CryptoMining" in event_types
     assert "SystemSlowness" in event_types
     assert "NetworkAnomaly" in event_types
-=======
+
 # tests/test_guardianpy_full_suite.py
 
 import pytest
@@ -258,4 +258,3 @@ def test_realtime_monitor_triggers_all_detectors(monkeypatch):
     assert "CryptoMining" in event_types
     assert "SystemSlowness" in event_types
     assert "NetworkAnomaly" in event_types
->>>>>>> 90c57a03bbd95413fb8d4d2353ea5a44219a202f
