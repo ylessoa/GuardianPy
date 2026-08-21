@@ -8,7 +8,7 @@ GuardianPy protege tu equipo contra minería no autorizada, ransomware, conexion
 
 ## 📊 Dashboard visual
 
-![GuardianPy Dashboard](dashboard.png)
+
 
 Este panel muestra:
 - **System Monitoring**: CPU y GPU en tiempo real, actividad de red.  
