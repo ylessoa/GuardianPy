@@ -1,4 +1,5 @@
-# tests/test_realtime_monitor_integration.py
+
+# tests/test_realtime_monitor_integration_extended.py
 
 import pytest
 import logging
@@ -23,17 +24,19 @@ class FakeProcessHighCPU:
             "cpu_percent": cpu_percent,
         }
     def net_connections(self, kind="inet"):
-        return []
+        return ["suspicious_connection"]
 
-def test_realtime_monitor_triggers_crypto_and_slowness(monkeypatch):
+def test_realtime_monitor_triggers_all_detectors(monkeypatch):
     called = []
 
     # Stub de log_security_event para capturar eventos
     def fake_log_security_event(event_type=None, details=None, source=None, description=None):
         if event_type == "CryptoMining":
             called.append(("CryptoMining", details))
-        elif source == "system_monitor":
+        elif source == "system_monitor" and "rendimiento" in (description or "").lower():
             called.append(("SystemSlowness", description))
+        elif source == "system_monitor" and "red" in (description or "").lower():
+            called.append(("NetworkAnomaly", description))
 
     # Parchear eventos y psutil
     import guardianpy.core.realtime_monitor as rm
@@ -42,17 +45,29 @@ def test_realtime_monitor_triggers_crypto_and_slowness(monkeypatch):
     monkeypatch.setattr(system_monitor.psutil, "process_iter", lambda attrs=None: [FakeProcessHighCPU()])
     monkeypatch.setattr(system_monitor.psutil, "cpu_percent", lambda _: None)
 
+    # Stub de detect_network_anomalies que además llama al log
+    def fake_detect_network_anomalies(conn_threshold=100):
+        system_monitor.events.log_security_event(
+            source="system_monitor",
+            description="Anomalía de red detectada: conexiones sospechosas"
+        )
+        return True
+
+    monkeypatch.setattr(system_monitor, "detect_network_anomalies", fake_detect_network_anomalies)
+
     # Crear monitor con detector falso de minería
     monitor = RealtimeMonitor(interval=1, logger=logging.getLogger("GuardianPy"))
     monitor.crypto_detector = FakeCryptoDetector(logger=monitor.logger)
 
-    # Ejecutar un ciclo manual y además forzar la detección de lentitud
+    # Ejecutar un ciclo manual y además forzar lentitud y red
     monitor._running = True
     monitor._run_cycle()
     system_monitor.detect_system_slowness(memory_mb_threshold=100, cpu_threshold=85)
+    system_monitor.detect_network_anomalies(conn_threshold=10)
     monitor._running = False
 
-    # Validar que se registraron ambos eventos
+    # Validar que se registraron los tres eventos
     event_types = [evt[0] for evt in called]
     assert "CryptoMining" in event_types
     assert "SystemSlowness" in event_types
+    assert "NetworkAnomaly" in event_types

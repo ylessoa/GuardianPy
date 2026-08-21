@@ -1,11 +1,25 @@
+# guardianpy/core/system_monitor.py
 import psutil
 from guardianpy.core import events
+
+def detect_network_anomalies(conn_threshold: int = 100):
+    """
+    Detector de anomalías de red (stub temporal).
+    Devuelve una lista vacía o simulada de anomalías de red.
+    """
+    return []
+
 
 def detect_system_slowness(
     memory_mb_threshold: float = 1024,
     cpu_threshold: float = 85,
     max_connections: int = 80
-):
+) -> bool:
+    """
+    Detecta procesos que causan lentitud en el sistema por alto consumo de CPU,
+    memoria o conexiones de red.
+    Registra un evento de seguridad si se encuentra algún culpable.
+    """
     findings = []
     psutil.cpu_percent(None)  # inicializa medición
 
@@ -32,7 +46,12 @@ def detect_system_slowness(
         top = max(findings, key=lambda f: (f["cpu_percent"], f["rss_mb"]))
         events.log_security_event(
             source="system_monitor",
-            description=f"⚠️ Rendimiento lento detectado. Proceso {top['name']} (PID {top['pid']}) consume {top['cpu_percent']}% CPU y {top['rss_mb']:.1f} MB de memoria."
+            description=(
+                f"⚠️ Rendimiento lento detectado. "
+                f"Proceso {top['name']} (PID {top['pid']}) consume "
+                f"{top['cpu_percent']}% CPU y {top['rss_mb']:.1f} MB de memoria."
+            )
         )
         return True
+
     return False
