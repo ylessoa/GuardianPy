@@ -11,6 +11,10 @@ from .config import app_data_dir
 def event_log_path() -> Path:
     return app_data_dir() / "events.jsonl"
 
+def log_security_event(source: str, description: str):
+    """Registra un evento de seguridad en el sistema."""
+    print(f"[SECURITY] {source}: {description}")
+    # Aquí podrías extenderlo para guardar en un archivo, base de datos o enviar alerta
 
 def log_event(kind: str, message: str, severity: str = "info", **metadata: Any) -> None:
     row = {
