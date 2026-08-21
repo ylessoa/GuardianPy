@@ -24,14 +24,14 @@ Replace-TextInFiles 'from Guardianpy\.core\.logger' 'from core.logger' *.py
 
 # Archivos Markdown (.md)
 Replace-TextInFiles 'guardianpy' 'guardianpy' *.md
-Replace-TextInFiles 'guardianpy' 'Guardianpy' *.md
+Replace-TextInFiles 'guardianpy' 'guardianpy' *.md
 
 # Scripts PowerShell (.ps1)
 Replace-TextInFiles 'guardianpy' 'guardianpy' *.ps1
-Replace-TextInFiles 'guardianpy' 'Guardianpy' *.ps1
+Replace-TextInFiles 'guardianpy' 'guardianpy' *.ps1
 
 # Scripts Bash (.sh)
 Replace-TextInFiles 'guardianpy' 'guardianpy' *.sh
-Replace-TextInFiles 'guardianpy' 'Guardianpy' *.sh
+Replace-TextInFiles 'guardianpy' 'guardianpy' *.sh
 
 Write-Host "✅ Todas las referencias a guardianpy han sido reemplazadas por guardianpy"
