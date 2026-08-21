@@ -7,7 +7,7 @@ GuardianPy protege tu equipo contra minería no autorizada, ransomware, conexion
 ---
 
 ## 📊 Dashboard visual
-
+https://github.com/ylessoa/GuardianPy/blob/fba4213ce8342aaeb7ee712c2d0a3ee2e9382b1f/Copilot_20260821_180413.png
 
 
 Este panel muestra:
