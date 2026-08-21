@@ -1,10 +1,13 @@
 # core/realtime_monitor.py (Reemplazar la clase RealtimeFileHandler y RealtimeMonitor)
-
+# guardianpy/core/realtime_monitor.py
 from __future__ import annotations
 import time
 import logging
 import queue
 import threading
+import threading
+import time
+import psutil
 from pathlib import Path
 from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
@@ -12,8 +15,56 @@ from guardianpy.core.scanner import scan_paths
 from guardianpy.core.quarantine import QuarantineManager
 from guardianpy.core.signatures import SignatureDB
 from guardianpy.core.integrity_monitor import MassModificationDetector
-import psutil
+from guardianpy.core.system_monitor import detect_network_anomalies
+from guardianpy.core.integrity_monitor import check_integrity
 
+class RealtimeMonitor:
+    def __init__(self, interval: int = 30):
+        """
+        Monitor en tiempo real que ejecuta detectores periódicamente.
+        :param interval: intervalo en segundos entre ejecuciones
+        """
+        self.interval = interval
+        self._timer = None
+        self._running = False
+
+    def _run_cycle(self):
+        """Ejecuta un ciclo de detección y programa el siguiente."""
+        if not self._running:
+            return
+
+        try:
+            # Detector de anomalías de red
+            findings = detect_network_anomalies(conn_threshold=100)
+            if findings:
+                print(f"[RealtimeMonitor] {len(findings)} anomalías de red detectadas.")
+
+            # Detector de integridad de archivos/configuración
+            check_integrity()
+            print("[RealtimeMonitor] Verificación de integridad completada.")
+
+        except Exception as e:
+            print(f"[RealtimeMonitor] Error en detección: {e}")
+
+        # Programar siguiente ejecución
+        self._timer = threading.Timer(self.interval, self._run_cycle)
+        self._timer.start()
+
+    def start(self):
+        """Inicia el monitor en segundo plano."""
+        if not self._running:
+            self._running = True
+            print("[RealtimeMonitor] Iniciando monitor residente...")
+            self._run_cycle()
+
+    def stop(self):
+        """Detiene el monitor."""
+        self._running = False
+        if self._timer:
+            self._timer.cancel()
+            self._timer = None
+        print("[RealtimeMonitor] Monitor detenido.")
+**
 class RealtimeFileHandler(FileSystemEventHandler):
     def __init__(self, signatures: SignatureDB, quarantine: QuarantineManager, auto_quarantine: bool, logger: logging.Logger):
         self.signatures = signatures
