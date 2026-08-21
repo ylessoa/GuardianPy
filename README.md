@@ -50,7 +50,10 @@ Acción: Proceso bloqueado y registrado en log.
 
 ✔️ Rama local sincronizada con origin/main
 
+
+
 🧩 ¿Para qué te sirve?
+
 Mantener tu equipo protegido contra amenazas invisibles.
 
 Evitar que procesos no autorizados consuman recursos o roben información.
