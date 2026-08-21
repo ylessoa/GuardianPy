@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # tests/test_crypto_mining_detector_suite.py
 
 import pytest
@@ -124,7 +123,7 @@ def test_crypto_mining_detector_marks_sustained_cpu(monkeypatch, caplog):
     assert suspicious, "El detector no marcó el proceso con CPU sostenida como sospechoso"
     assert suspicious[0]["name"] == "sustained_miner"
     assert any("minería no autorizada" in msg.lower() for msg in caplog.messages)
-=======
+
 # tests/test_crypto_mining_detector_suite.py
 
 import pytest
@@ -250,4 +249,3 @@ def test_crypto_mining_detector_marks_sustained_cpu(monkeypatch, caplog):
     assert suspicious, "El detector no marcó el proceso con CPU sostenida como sospechoso"
     assert suspicious[0]["name"] == "sustained_miner"
     assert any("minería no autorizada" in msg.lower() for msg in caplog.messages)
->>>>>>> 90c57a03bbd95413fb8d4d2353ea5a44219a202f
