@@ -1,8 +1,8 @@
 from pathlib import Path
-from core.scanner import scan_paths
-from core.signatures import load_signatures
-from core.quarantine import QuarantineManager
-from core.scanner import scan_file
+from guardianpy.core.scanner import scan_paths
+from guardianpy.core.signatures import load_signatures
+from guardianpy.core.quarantine import QuarantineManager
+from guardianpy.core.scanner import scan_file
 import tempfile
 
 def test_eicar_detection():
