@@ -27,6 +27,32 @@ CRITICAL_PATHS = [
     "signatures/signatures.json"
 ]
 
+def initialize_baseline():
+    """Crea baseline inicial con hashes de archivos críticos."""
+    baseline = {}
+    for path in CRITICAL_PATHS:
+        if os.path.exists(path):
+            baseline[path] = file_hash(path)
+    save_baseline(baseline)
+    events.log_security_event(
+        "integrity_monitor",
+        "Baseline inicial creado para archivos críticos."
+    )
+def check_integrity():
+    """Verifica integridad de archivos críticos contra baseline."""
+    baseline = load_baseline()
+    for path in CRITICAL_PATHS:
+        if not os.path.exists(path):
+            continue
+        current_hash = file_hash(path)
+        baseline_hash = baseline.get(path)
+        if baseline_hash and current_hash != baseline_hash:
+            events.log_security_event(
+                "integrity_monitor",
+                f"Cambio inesperado detectado en {path}"
+            )
+            baseline[path] = current_hash
+    save_baseline(baseline)
 
 def file_hash(path: str) -> str:
     """Genera el hash SHA256 de un archivo."""
