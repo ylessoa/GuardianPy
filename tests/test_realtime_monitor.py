@@ -1,6 +1,5 @@
-import pytest
 import time
-from unittest.mock import patch
+import pytest
 from guardianpy.core.realtime_monitor import RealtimeMonitor
 
 def test_realtime_monitor_calls_detector(monkeypatch):
@@ -31,3 +30,4 @@ def test_realtime_monitor_calls_detector(monkeypatch):
     intervals = [calls[i+1] - calls[i] for i in range(len(calls)-1)]
     # Deben estar alrededor de 0.5 segundos (con tolerancia)
     assert all(0.3 <= iv <= 0.8 for iv in intervals)
+
