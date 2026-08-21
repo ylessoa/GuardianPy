@@ -13,8 +13,18 @@ def event_log_path() -> Path:
 
 def log_security_event(source: str, description: str):
     """Registra un evento de seguridad en el sistema."""
+    row = {
+        "ts": datetime.now(timezone.utc).isoformat(),
+        "kind": "security",
+        "severity": "warning",
+        "message": description,
+        "metadata": {"source": source},
+    }
+    with event_log_path().open("a", encoding="utf-8") as fh:
+        fh.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+    # También mostramos en consola para feedback inmediato
     print(f"[SECURITY] {source}: {description}")
-    # Aquí podrías extenderlo para guardar en un archivo, base de datos o enviar alerta
 
 def log_event(kind: str, message: str, severity: str = "info", **metadata: Any) -> None:
     row = {
