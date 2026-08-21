@@ -1,6 +1,6 @@
 from pathlib import Path
 from unittest.mock import patch
-from core.config import load_config, AppConfig
+from guardianpy.core.config import load_config, AppConfig
 
 def test_load_corrupted_config(tmp_path: Path):
     fake_config_path = tmp_path / "config.json"
