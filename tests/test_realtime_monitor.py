@@ -1,33 +1,45 @@
+# tests/test_realtime_monitor.py
+
 import time
 import pytest
+from pathlib import Path
+from guardianpy.core import events
 from guardianpy.core.realtime_monitor import RealtimeMonitor
+from guardianpy.core.integrity_monitor import initialize_baseline
 
-def test_realtime_monitor_calls_detector(monkeypatch):
-    calls = []
+def test_realtime_monitor_detects_file_changes(tmp_path, monkeypatch):
+    """
+    Test de integración:
+    - Inicializa baseline con un archivo crítico.
+    - Simula modificación del archivo.
+    - Verifica que se registra alerta en events.jsonl.
+    """
 
-    # Mock de detect_network_anomalies para registrar llamadas
-    def fake_detector(conn_threshold=100):
-        calls.append(time.time())
-        return []
+    # Crear archivo crítico simulado
+    critical_file = tmp_path / "config.py"
+    critical_file.write_text("valor_inicial", encoding="utf-8")
 
-    monkeypatch.setattr(
-        "guardianpy.core.system_monitor.detect_network_anomalies",
-        fake_detector
-    )
+    # Redirigir baseline y log de eventos a archivos temporales
+    monkeypatch.setattr("guardianpy.core.integrity_monitor.BASELINE_FILE", tmp_path / "baseline.json")
+    monkeypatch.setattr(events, "event_log_path", lambda: tmp_path / "events.jsonl")
 
-    # Usamos un intervalo corto para el test (0.5 segundos)
+    # Inicializar baseline con el archivo crítico
+    monkeypatch.setattr("guardianpy.core.integrity_monitor.CRITICAL_PATHS", [str(critical_file)])
+    initialize_baseline()
+
+    # Arrancar monitor con intervalo corto
     monitor = RealtimeMonitor(interval=0.5)
     monitor.start()
 
-    # Esperamos ~1.2 segundos para que se ejecute varias veces
+    # Simular modificación del archivo
+    time.sleep(0.6)
+    critical_file.write_text("valor_modificado", encoding="utf-8")
+
+    # Esperar a que el monitor detecte el cambio
     time.sleep(1.2)
     monitor.stop()
 
-    # Validamos que se llamó al menos 2 veces
-    assert len(calls) >= 2
-
-    # Validamos que las llamadas tienen separación aproximada al intervalo
-    intervals = [calls[i+1] - calls[i] for i in range(len(calls)-1)]
-    # Deben estar alrededor de 0.5 segundos (con tolerancia)
-    assert all(0.3 <= iv <= 0.8 for iv in intervals)
-
+    # Validar que se registró alerta en events.jsonl
+    log_content = (tmp_path / "events.jsonl").read_text(encoding="utf-8")
+    assert "integrity_monitor" in log_content
+    assert "Cambio inesperado" in log_content
