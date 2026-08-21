@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # tests/test_system_monitor_slowness_negative.py
 
 import pytest
@@ -37,7 +37,7 @@ def test_detect_system_slowness_returns_false_and_no_event(monkeypatch):
     # Validar que no se detectó lentitud y no se llamó a log_security_event
     assert result is False
     assert called == {}
-=======
+
 # tests/test_system_monitor_slowness_negative.py
 
 import pytest
@@ -76,4 +76,3 @@ def test_detect_system_slowness_returns_false_and_no_event(monkeypatch):
     # Validar que no se detectó lentitud y no se llamó a log_security_event
     assert result is False
     assert called == {}
->>>>>>> 90c57a03bbd95413fb8d4d2353ea5a44219a202f
