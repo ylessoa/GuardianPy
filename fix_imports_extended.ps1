@@ -19,8 +19,8 @@ Replace-TextInFiles 'from guardianpy\.core\.scanner' 'from core.scanner' *.py
 Replace-TextInFiles 'from guardianpy\.core\.signatures' 'from core.signatures' *.py
 Replace-TextInFiles 'from guardianpy\.core\.quarantine' 'from core.quarantine' *.py
 Replace-TextInFiles 'from guardianpy\.core\.updater' 'from core.updater' *.py
-Replace-TextInFiles 'from GuardianPy\.core\.config' 'from core.config' *.py
-Replace-TextInFiles 'from GuardianPy\.core\.logger' 'from core.logger' *.py
+Replace-TextInFiles 'from Guardianpy\.core\.config' 'from core.config' *.py
+Replace-TextInFiles 'from Guardianpy\.core\.logger' 'from core.logger' *.py
 
 # Archivos Markdown (.md)
 Replace-TextInFiles 'guardianpy' 'guardianpy' *.md
