@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # tests/test_guardianpy_suite.py
 
 import pytest
@@ -99,7 +99,7 @@ def test_detect_system_slowness_negative(monkeypatch):
 
     assert result is False
     assert called == {}
-=======
+
 # tests/test_guardianpy_suite.py
 
 import pytest
@@ -200,4 +200,4 @@ def test_detect_system_slowness_negative(monkeypatch):
 
     assert result is False
     assert called == {}
->>>>>>> 90c57a03bbd95413fb8d4d2353ea5a44219a202f
+
