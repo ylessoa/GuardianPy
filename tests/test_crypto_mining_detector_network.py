@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # tests/test_crypto_mining_detector_network.py
 
 import pytest
@@ -43,7 +43,7 @@ def test_crypto_mining_detector_marks_network_suspicious(monkeypatch, caplog):
     assert suspicious, "El detector no marcó el proceso como sospechoso por red"
     assert suspicious[0]["pid"] == 5678
     assert any("minería no autorizada" in msg.lower() for msg in caplog.messages)
-=======
+
 # tests/test_crypto_mining_detector_network.py
 
 import pytest
@@ -88,4 +88,4 @@ def test_crypto_mining_detector_marks_network_suspicious(monkeypatch, caplog):
     assert suspicious, "El detector no marcó el proceso como sospechoso por red"
     assert suspicious[0]["pid"] == 5678
     assert any("minería no autorizada" in msg.lower() for msg in caplog.messages)
->>>>>>> 90c57a03bbd95413fb8d4d2353ea5a44219a202f
+
