@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 # tests/test_realtime_monitor_integration_extended.py
 
@@ -72,7 +71,7 @@ def test_realtime_monitor_triggers_all_detectors(monkeypatch):
     assert "CryptoMining" in event_types
     assert "SystemSlowness" in event_types
     assert "NetworkAnomaly" in event_types
-=======
+
 
 # tests/test_realtime_monitor_integration_extended.py
 
@@ -146,4 +145,4 @@ def test_realtime_monitor_triggers_all_detectors(monkeypatch):
     assert "CryptoMining" in event_types
     assert "SystemSlowness" in event_types
     assert "NetworkAnomaly" in event_types
->>>>>>> 90c57a03bbd95413fb8d4d2353ea5a44219a202f
+
