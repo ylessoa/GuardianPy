@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # tests/test_system_monitor_suite.py
 
 import pytest
