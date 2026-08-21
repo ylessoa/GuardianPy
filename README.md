@@ -28,11 +28,17 @@ Incluye un detector de conflictos de código que te avisa si tu repositorio tien
 Con el flujo safe_pull, puedes actualizar tu proyecto sin preocuparte por conflictos: si aparecen, se descartan y tu copia queda alineada con el remoto.
 
 👁️ Ejemplos visuales de escenarios reales
+
 🚨 Alerta de minería no autorizada
+
 [GuardianPy Alert]
+
 ⚠️ Proceso sospechoso detectado: xmrig.exe
+
 Uso de CPU: 95%
+
 Conexión a pool: mining.example.com:3333
+
 Acción: Proceso bloqueado y registrado en log.
 
 
